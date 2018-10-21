@@ -2,7 +2,7 @@ Title: Grid
 ---
 The `Grid` control is a *Panel* and useful to organize other controls in columns and rows.
 It is capable of joining neighboring rows and columns using column span or row span.
-[`ColumnDefinition`] [`RowDefinition`] can be used to define the relative and absolute diviation
+`ColumnDefinition` and `RowDefinition` can be used to define the relative and absolute spliting geometry
 of the resulting grid.
 
 Use the `Grid.Column` and `Grid.Row` attached properties to assign child elements into their respective
@@ -20,7 +20,11 @@ An example of a Grid with 3 equal Rows and 3 Columns with (1 fixed width), (2 gr
 </Grid>
 ```
 
-`Remark`: Note that the Column 1 will get 1.5 parts plus Column 2 will get 4 parts of the remainder of the space that Colum 0 left.
+## Remark
+
+Note that the Column 1 will get 1.5 parts plus Column 2 will get 4 parts of the remainder of the space that Colum 0 left.
+
+## Example
 
 This is the simplified way to defining columns and rows. The above grid is equal to the following 
 more verbose definition:
@@ -61,6 +65,3 @@ more verbose definition:
 
 The WPF known Grid column alignments over several grids is not available, yet.
 
-## Pseudoclasses
-
-None
