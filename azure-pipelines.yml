@@ -7,7 +7,7 @@ steps:
     packageType: 'sdk'
     version: '2.2.100' 
 
-- script: 'dotnet tool install -g Wyam.Tool --version 2.1.1'
+- script: 'dotnet tool install -g Wyam.Tool --version 2.2.4'
 
 - script: 'wyam -i wwwroot'
   failOnStderr: true
