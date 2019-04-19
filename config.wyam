@@ -17,6 +17,7 @@ Settings[DocsKeys.ValidateAbsoluteLinks] = false;
 // On Azure Pipelines, error out on invalid links.
 if (System.Environment.GetEnvironmentVariable("SYSTEM_TEAMFOUNDATIONCOLLECTIONURI") != null)
 {
+    Console.WriteLine("Running on Azure Pipelines");
     Settings[DocsKeys.ValidateLinksAsError] = true;
 }
 
