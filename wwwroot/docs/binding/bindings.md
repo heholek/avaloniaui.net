@@ -29,7 +29,7 @@ An empty binding binds to DataContext itself
 We call the property on the control the binding _target_ and the property on the `DataContext` the
 binding _source_.
 
-## Binding Path
+# Binding Path
 
 The binding path above can be a single property, or it can be a chain of properties. For example
 if the object assigned to the `DataContext` has a `Student` property, and the value of this property
@@ -45,7 +45,7 @@ You can also include array/list indexers in binding paths:
 <TextBlock Text="{Binding Students[0].Name}"/>
 ```
 
-## Binding Modes
+# Binding Modes
 
 You can change the behavior of a `{Binding}` by specifing a binding `Mode`:
 

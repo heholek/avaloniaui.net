@@ -35,7 +35,7 @@ XAML binding was rather buggy and lacking in features in the last alpha, but
 should now be a lot more usable. We've also added some features above and beyond
 traditional XAML binding:
 
-## Binding to Controls
+# Binding to Controls
 
 You can now bind to controls:
 
@@ -49,7 +49,7 @@ But in addition we also have the shorthand form of:
     <TextBox Text={Binding #other.Text}
 ```
 
-## Binding negation
+# Binding negation
 
 Ever lamented the hoops you have to jump though in XAML to negate a binding?
 Well we feel your pain and now you can negate bindings just by adding a `!`
@@ -61,7 +61,7 @@ to the binding path:
     <ContentPresenter Content="{Binding}" IsVisible="{Binding !Loading}"/>
 ```
 
-## MultiBinding and Async Bindings
+# MultiBinding and Async Bindings
 
 We also have initial support for `MultiBinding` (only one-way at the moment) and
 you can also bind to `Task` and `Observable` and get the results you'd expect!

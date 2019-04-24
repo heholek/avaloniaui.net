@@ -179,7 +179,7 @@ in the `MainWindowViewModel.Content` property, the appropriate view will be disp
 <Window>
 ```
 
-## Evaluation Order
+# Evaluation Order
 
 Data templates in Avalonia can target interfaces and derived classes and so the order of
 DataTemplates can be important: DataTemplates within the same collection are evaluated in

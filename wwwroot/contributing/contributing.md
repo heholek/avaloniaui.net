@@ -1,10 +1,11 @@
-# Contributing #
+Title: Contributing
+---
 
-## Before You Start ##
+# Before You Start 
 
 Drop into our [gitter chat room](https://gitter.im/AvaloniaUI/Avalonia) and let us know what you're thinking of doing. We might be able to give you guidance or let you know if someone else is already working on the feature.
 
-## Style ##
+# Style
 
 The codebase uses [.net core](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md) coding style. 
 
@@ -13,7 +14,7 @@ If you're a few characters over then don't worry too much.
 
 **DO NOT USE #REGIONS** full stop.
 
-## Pull requests ##
+# Pull requests
 
 A single pull request should be submitted for each change. If you're making more than one change,
 please submit separate pull requests for each change for easy review. Rebase your changes to make 
@@ -39,7 +40,7 @@ new features!
 
 Prefer terseness to verbosity but don't try to be too clever.
 
-## Tests ##
+# Tests
 
 There are two types of tests currently in the codebase; unit tests and render tests.
 
@@ -53,8 +54,12 @@ Where Avalonia.Controls.UnitTests is the name of the project.
 Unit test methods should be named in a sentence style, separated by underscores, that describes in
 English what the test is testing, e.g.
 
+```csharp
     void Calling_Foo_Should_Increment_Bar()
+```
 
 Render tests should describe what the produced image is:
 
+```csharp
     void Rectangle_2px_Stroke_Filled()
+```

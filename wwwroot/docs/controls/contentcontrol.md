@@ -3,6 +3,17 @@ Title: ContentControl
 The [`ContentControl`](/api/Avalonia.Controls/ContentControl) displays data according to a
 [data template](/docs/templates/datatemplate).
 
+# Common Properties
+
+|Property|Description|
+|--------|-----------|
+|`Content`|The content to display in the control|
+
+# Source code
+[ContentControl.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/ContentControl.cs)
+
+# Display content
+
 At its simplest, a `ContentControl` displays the data assigned to its
 [`Content`](/api/Avalonia.Controls/ContentControl/4B02A756) property.
 
@@ -26,6 +37,8 @@ If you assign a control to a `ContentControl` then it will display the control, 
   <Button>Click Me!<Button>
 </ContentControl>
 ```
+
+# Display content with templates
 
 So far so uninteresting. Where `ContentControl` becomes useful is in tandem with 
 [data binding](/docs/binding) and [data templates](/docs/templates/datatemplate). By setting the

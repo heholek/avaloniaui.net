@@ -12,7 +12,7 @@ can be assigned or bound to the button's [`Command`](/api/Avalonia.Controls/Butt
 property. This command will be executed when the button is clicked. For more information see
 [binding to commands](/docs/binding/binding-to-commands.md).
 
-## Common Properties
+# Common Properties
 
 |Property|Description|
 |--------|-----------|
@@ -23,8 +23,47 @@ property. This command will be executed when the button is clicked. For more inf
 |`IsDefault`|When set, pressing the enter key clicks the button even if not focused|
 |`IsPressed`|Set when the button is depressed|
 
-## Pseudoclasses
+# Pseudoclasses
 
 |Pseudoclass|Description|
 |-----------|-----------|
 |`:pressed`|Set when the button is depressed|
+
+# Source code
+[Button.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Button.cs)
+
+# Examples
+
+ ## Basic button
+```xml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaAppTemplate.MainWindow"
+        Title="AvaloniaAppTemplate">
+	<StackPanel>
+		<Button Width="160" >My Button</Button>
+	</StackPanel>
+</Window>
+```
+produces following output with **Windows 10**  
+![Basic button](images/button_basic.png)
+
+ ## Colored button
+```xml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaAppTemplate.MainWindow"
+        Title="AvaloniaAppTemplate">
+	<StackPanel>
+		<Button Width="160" Foreground="White" Background="Red">White text, red background</Button>
+	</StackPanel>
+</Window>
+```
+produces following output with **Windows 10**  
+![Basic button](images/button_colors.png)

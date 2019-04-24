@@ -24,7 +24,7 @@ There have been a few architectural changes in this release that we hope will ai
 
 So here's some of the major features in this release:
 
-## Deferred Rendering
+# Deferred Rendering
 
 We were previously rendering the entire window each time something changed, which was obviously rather inefficient. [#827](https://github.com/AvaloniaUI/Avalonia/pull/827) added a `DeferredRenderer`  which renders to a low-level scenegraph on the UI thread which is then rendered to the window on a separate render thread.
 
@@ -32,13 +32,13 @@ This greatly improves our rendering performance - particularly when animations a
 
 The old renderer is still available as the `ImmediateRenderer` class for those folks who want to render everything every frame.
 
-## Monomac-based Backend
+# Monomac-based Backend
 
 [#1005](https://github.com/AvaloniaUI/Avalonia/pull/1005) introduced a new Monomac-based backend for Mac OSX platforms. 
 The main issue with GTK2/GTK3 backends used previously was the huge set of binaries (~60MB) that needs to be shipped with your app. Another problem with those binaries is that it's complicated to package them into your app bundle.
 Our new backend also makes use of Cocoa window dialogs, which makes your app to look more native.
 
-## Relative Source Syntax Sugar
+# Relative Source Syntax Sugar
 
 [#1209](https://github.com/AvaloniaUI/Avalonia/pull/1209) introduced shorthand for binding to other controls relative to the control being bound. In WPF, this is achieved by using the `RelativeSource` syntax on a `{Binding}`, as a (slightly contrived example) this is how you would bind a `TextBlock`'s text to the `Tag` property on a parent control:
 
@@ -67,25 +67,25 @@ Now Avalonia has new syntax to achieve this without the verbosity:
 | `$parent[ns:Type]`        | `Mode = FindAncestor; AncestorType = ns:Type` |
 | `$parent[ns:Type; Level]` | `Mode = FindAncestor; AncestorType = ns:Type; AncestorLevel = Level + 1` |
 
-## Drawings
+# Drawings
 
 `Drawing` is a convenient way to create vector icons, used by WPF. The [Visual Studio Image Library](https://msdn.microsoft.com/en-us/library/windows/desktop/mt791579(v=vs.85).aspx) provides many icons as Drawings, and there are other tools that can produce them. They are much more lightweight compared to `Shape` controls since they are not part of the visual tree. 
 
 [1117](https://github.com/AvaloniaUI/Avalonia/pull/1117) added support for Drawings to Avalonia, though our standard image control still can't display them - in the meantime while we add support for that, drawings can be displayed in a `DrawingPresenter` control.
 
-## New Previewer with .NET Core support in Visual Studio extension
+# New Previewer with .NET Core support in Visual Studio extension
 
 [#1105](https://github.com/AvaloniaUI/Avalonia/pull/1105) introduced a new previewer architecture which should allow us to make designers for non-windows platforms. The previous previewer used win32 API voodoo to reparent the window of the application into the designer. It also used some external executable that would initialize various things via reflection. The whole thing was tied to win32 and full .NET framework, it also made several assumptions about your app. The new previewer architecture instead uses a TCP transport protocol which communicates between the application and the designer in a platform-independent manner. It still has an option to embed the HWND which is used by our Visual Studio extension, but the default one will transfer rendered bitmap data via TCP. Speaking of which, the entire infrastructure for remote widgets is exposed in our public API via `RemoteServer` and `RemoteWidget` classes.
 
 The [AvaloniaVS](https://marketplace.visualstudio.com/items?itemName=AvaloniaTeam.AvaloniaforVisualStudio) extension has already been updated to use this new protocol, and hopefully now designers for other IDEs will be coming soon!
 
-## StaticResource and DynamicResource
+# StaticResource and DynamicResource
 
 [#1130](https://github.com/AvaloniaUI/Avalonia/pull/1130) added `Control.Resources`, `StaticResource` and `DynamicResource`.
 
 The new features are designed to follow WPF/UWP as closely as possible - previously, resources could only be contained in `<Style>`s and we used `{StyleResource}` to access these resources. Now each control has its own `Resources` dictionary and `{StaticResource}` and `{DynamicResource}` are used to access them. `{StyleResource}` has now be removed, so you will need to update all uses of that markup extension to `{DynamicResource}`.
 
-## Bind Commands to Methods
+# Bind Commands to Methods
 
 Ever get annoyed that you have to create an `ICommand` to bind a button command, and wish you could just point your binding to a method? Since [`#1179`](https://github.com/AvaloniaUI/Avalonia/pull/1179) you can! 
 
@@ -103,16 +103,16 @@ public class ViewModel
 <Button Command="{Binding ButtonClicked}"/>
 ```
 
-## Calendar Control
+# Calendar Control
 
 [#1244](https://github.com/AvaloniaUI/Avalonia/pull/1244) ported the [Silverlight Calendar](https://github.com/MicrosoftArchive/SilverlightToolkit) control to Avalonia, for all your calendaring needs.
 
-## WPF integration
+# WPF integration
 
 We've added a seamless integration with WPF: you can embed Avalonia controls in your WPF application without creating extra native windows and with full layout integration which is allowed by the fact that WPF's and Avalonia's layout systems are almost the same. See the demo [here](https://www.youtube.com/watch?v=uFKcO3RxN7k).
 
 
-## Various Other Features
+# Various Other Features
 
 Here's a curated list of the other interesting features that were introduced in this release. To see everything included in the Beta 1 release, see the [milestone](https://github.com/AvaloniaUI/Avalonia/milestone/2).
 
@@ -132,11 +132,11 @@ Here's a curated list of the other interesting features that were introduced in 
 - `#1079` Portablexaml
 
 
-## Breaking changes in this release
+# Breaking changes in this release
 
 We are also now tracking breaking changes at our [wiki page](https://github.com/AvaloniaUI/Avalonia/wiki/Breaking-Changes).
 
-### `BuildAvaloniaApp` and previewer.
+## `BuildAvaloniaApp` and previewer.
 
 You now need `BuildAvaloniaApp` static method in the class with your entry point (typically in `Program.cs` or `App.xaml.cs`) which should be called from `Main`:
 
@@ -155,20 +155,20 @@ You now need `BuildAvaloniaApp` static method in the class with your entry point
 
 Previewer *won't* be able to work without it.
 
-### `DataContextChanging` and `DataContextChanged`
+## `DataContextChanging` and `DataContextChanged`
 
 They were replaced by `OnDataContextBeginUpdate` and `OnDataContextEndUpdate`
 
 
-### `Static` and `Type` markup extensions
+## `Static` and `Type` markup extensions
 
 They were replaced by standard `x:Static` and `x:Type`, add `xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"` to the root of your XAML file.
 
-### `StyleResource`
+## `StyleResource`
 
 `StyleResource` has been replaced by `StaticResource` and `DynamicResource` as in other XAML frameworks. `StaticResource` and `DynamicResource` in Avalonia search both `Control.Resources` _and_ `Style.Resources`.
 
-### Mouse device
+## Mouse device
 
 `MouseDevice` is no longer available from the global context, you need to obtain one from `TopLevel` (`Window`, `Popup`, etc). Call `GetVisualRoot()` in your control and cast it to `IInputRoot`.
 
@@ -177,7 +177,7 @@ var pos = (_control.GetVisualRoot() as IInputRoot)?.MouseDevice?.Position ?? def
 ```
 
 
-## Getting started
+# Getting started
 
 Follow instructions [here](/guides/quickstart).
 

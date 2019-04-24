@@ -1,4 +1,5 @@
-# Avalonia Architecture
+Title: Avalonia Architecture
+---
 
 At the highest level, avalonia is split up into a "core" and two "subsystems".
 
@@ -8,17 +9,17 @@ At the highest level, avalonia is split up into a "core" and two "subsystems".
 
 There are currently two Windowing and two Rendering subsystems:
 
-## Windowing Subsystems
+# Windowing Subsystems
 
 * Avalonia.Win32 uses the Win32 API (this also works on 64-bit windows).
 * Avalonia.Gtk uses the GTK2 toolkit and can be run on both Windows and *nix.
 
-## Rendering Subsystems
+# Rendering Subsystems
 
 * Avalonia.Direct2D1 uses Microsoft's Direct2D1 API.
 * Avalonia.Cairo uses Cairo for rendering and Pango for text layout.
 
-## Core
+# Core
 
 The Avalonia core is split up into several assemblies. Note that they're not separated like this 
 because you will want to use them separately; they are separate to maintain separation of concerns 

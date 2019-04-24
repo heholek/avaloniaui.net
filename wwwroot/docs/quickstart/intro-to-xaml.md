@@ -10,7 +10,7 @@ many UI framworks.
   or [Microsoft XAML documentation for UWP](https://docs.microsoft.com/en-us/windows/uwp/xaml-platform/xaml-overview) -
   many of the concepts are the same between frameworks.
 
-## Format of an Avalonia XAML File
+# Format of an Avalonia XAML File
 
 A basic Avalonia XAML file looks like this:
 
@@ -30,7 +30,7 @@ There are three parts to this file:
   namespace. This isn't strictly necessary, but you will probably need it for accessing certain
   features of the XAML language.
 
-## Declaring Controls
+# Declaring Controls
 
 Controls are added to the XAML by adding an XML element with the control's class name. For example
 to add a button as the child of the window you would write:
@@ -44,7 +44,7 @@ to add a button as the child of the window you would write:
 
 See the [controls documentation](/docs/controls) for a list of the controls included with Avalonia.
 
-## Setting Properties
+# Setting Properties
 
 You can set a property of a control by adding an XML attribute to an element. For example to create
 a button with a blue background you could write:
@@ -59,7 +59,7 @@ a button with a blue background you could write:
 You can also use _property element syntax_ for setting properties. For more information see the
 [WPF documentation](https://docs.microsoft.com/en-us/dotnet/framework/wpf/advanced/xaml-overview-wpf#property-element-syntax).
 
-## Content Properties
+# Content Properties
 
 You may notice that the button above has its "Hello World!" content placed directly inside the XML
 element. This could also be written as a property using:
@@ -75,7 +75,7 @@ This is because [`Button.Content`](api/Avalonia.Controls/ContentControl/4B02A756
 _`[Content]` Property_ which means that any content placed inside its XML tag will be assigned to this
 property.
 
-## Binding
+# Binding
 
 You can bind a property using the `{Binding}` markup extension:
 

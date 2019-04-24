@@ -10,7 +10,7 @@ For the past few months we have been working on a new backend for OSX. We now ha
 
 Currently we are publishing the new backend as a seperate nuget package. The OSX backend now supports OpenGL GPU acceleration.
 
-## Try the new Mac Backend today
+# Try the new Mac Backend today
 
 To try the new backend today you need to update your application to Avalonia version `0.6.2-build6362-beta` for information on how to use Avalonia nightly builds see: [Using nightly build feed](https://github.com/AvaloniaUI/Avalonia/wiki/Using-nightly-build-feed)
 
@@ -47,7 +47,7 @@ I recommend doing this by replacing the BuildAvaloniaApp method like so:
 
 ```
 
-## What is Avalonia.Native?
+# What is Avalonia.Native?
 
 Avalonia.Native isn't just an Avalonia backend for OSX, it is actually set of COM based interfaces that Avalonia can attach to. This allows Avalonia  backends to be written in native code on platforms where this is difficult in managed code.
 

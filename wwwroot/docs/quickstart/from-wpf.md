@@ -1,14 +1,14 @@
 Title: Avalonia for WPF Developers
-Order: 100
+Order: 1010
 ---
 
 Avalonia is in general very similar to WPF, but you will find differences. Here
 are the most common:
 
-## Styling
+# Styling
 
 The most obvious difference from other XAML frameworks is that Avalonia uses a
-[CSS-like styling system](styles). Styles aren't stored in a
+[CSS-like styling system](/docs/styles/styles). Styles aren't stored in a
 `Resources` collection as in WPF, they are stored in a separate `Styles`
 collection:
 
@@ -22,7 +22,7 @@ collection:
         <TextBlock Classes="h1">Header</TextBlock>
     <UserControl>    
 
-## DataTemplates
+# DataTemplates
 
 As styles aren't stored  in `Resources`, neither are `DataTemplates`. Instead, 
 `DataTemplates` are placed in a `DataTemplates` collection on each control
@@ -48,13 +48,13 @@ cannot be done in WPF) and so the order of `DataTemplate`s can be important:
 so you need to place them from most-specific to least-specific as you would in
 code.
 
-## HierachicalDataTemplate
+# HierachicalDataTemplate
 
 WPF's `HierarchicalDataTemplate` is called `TreeDataTemplate` in Avalonia (as the
 former is difficult to type!). The two are almost entirely equivalent except
 that the `ItemTemplate` property is not present in Avalonia.
 
-## UIElement, FrameworkElement and Control
+# UIElement, FrameworkElement and Control
 
 WPF's `UIElement` and `FrameworkElement` are non-templated control base classes,
 which roughly equate to the Avalonia `Control` class. WPF's `Control` class on
@@ -67,15 +67,15 @@ So to recap:
 - `FrameworkElement`: `Control`
 - `Control`: `TemplatedControl`
 
-## DependencyProperty
+# DependencyProperty
 
 The Avalonia equivalent of `DependencyProperty` is `StyledProperty`, however
-Avalonia [has a richer property system than WPF](defining-properties.md),
+Avalonia [has a richer property system than WPF](/docs/authoring-controls/defining-properties),
 and includes `DirectProperty` for turning standard CLR properties into Avalonia
 properties. The common base class of `StyledProperty` and `DirectProperty`
 is `AvaloniaProperty`.
 
-## Grid
+# Grid
 
 Column and row definitions can be specified in Avalonia using strings, avoiding
 the clunky syntax in WPF:
@@ -88,13 +88,13 @@ than `Grid`.
 
 We don't yet support `SharedSizeScope` in `Grid`.
 
-## ItemsControl
+# ItemsControl
 
 In WPF, `ItemsControl` and derived classes such as `ListBox` have two separate
 items properties: `Items` and `ItemsSource`. Avalonia however just has a single
 one: `Items`.
 
-## Tunnelling Events
+# Tunnelling Events
 
 Avalonia has tunnelling events (unlike UWP!) but they're not exposed via
 separate `Preview` CLR event handlers. To subscribe to a tunnelling event you
@@ -109,7 +109,7 @@ void OnPreviewKeyDown(object sender, KeyEventArgs e)
 }
 ```
 
-## Class Handlers
+# Class Handlers
 
 In WPF, class handlers for events can be added by calling
 [EventManager.RegisterClassHandler](https://msdn.microsoft.com/en-us/library/ms597875.aspx).
@@ -139,7 +139,7 @@ Notice that in WPF you have to add the class handler as a static method, whereas
 in Avalonia the class handler is not static: the notification is automatically
 directed to the correct instance.
 
-## PropertyChangedCallback
+# PropertyChangedCallback
 
 Listening to changes on DependencyProperties in WPF can be complex. When you
 register a `DependencyProperty` you can supply a static `PropertyChangedCallback`
@@ -150,9 +150,9 @@ In Avalonia, there is no `PropertyChangedCallback` at the time of registration,
 instead a class listener is [added to the control's static constructor in much
 the same way that event class listeners are added](working-with-properties.md#subscribing-to-a-property-on-any-object).
 
-## RenderTransforms and RenderTransformOrigin
+# RenderTransforms and RenderTransformOrigin
 
-RenderTransformOrigins are different in WPF and Avalonia: If you apply a `RenderTransform`, keep in mind that our default value for the RenderTransformOrigin is `RelativePoint.Center`. In WPF the default value is `RelativePoint.TopLeft` (0, 0). In controls like Viewbox (currently being developed) the same code will lead to a different rendering behavior:
+RenderTransformOrigins are different in WPF and Avalonia: If you apply a `RenderTransform`, keep in mind that our default value for the RenderTransformOrigin is `RelativePoint.Center`. In WPF the default value is `RelativePoint.TopLeft` (0, 0). In controls like Viewbox the same code will lead to a different rendering behavior:
 
 In WPF:
 ![WPF](https://files.gitter.im/AvaloniaUI/Avalonia/cDrM/image.png)

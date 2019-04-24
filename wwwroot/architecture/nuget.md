@@ -1,4 +1,5 @@
-# Avalonia NuGet Packages
+Title: Avalonia NuGet Packages
+---
 
 Avalonia is divided into several `NuGet` packages. 
 
@@ -8,7 +9,7 @@ Avalonia is divided into several `NuGet` packages.
 * The `Avalonia.iOS` and `Avalonia.Android` packages are intended to be used by the end users targeting specific mobile platforms. 
 * The `Avalonia.Mobile` package is intended to be used by the end users targeting multiple mobile platforms (`Android` and `iOS`).
 
-## Core
+# Core
 
 * Avalonia (.nupkg)
   - Avalonia.Animation (.dll)
@@ -34,7 +35,7 @@ Avalonia is divided into several `NuGet` packages.
 * Avalonia.HtmlRenderer (.nupkg)
   - Avalonia (.nupkg)
 
-## Desktop
+# Desktop
 
 * Avalonia.Win32 (.nupkg)
   - Avalonia.Win32 (.dll)
@@ -67,7 +68,7 @@ Avalonia is divided into several `NuGet` packages.
   - Avalonia.Cairo (.nupkg)
   - Avalonia.Skia.Desktop (.nupkg)
 
-## Mobile
+# Mobile
 
 * Avalonia.Android (.nupkg)
   - Avalonia.Android (.dll)

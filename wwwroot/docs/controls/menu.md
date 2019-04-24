@@ -32,7 +32,7 @@ The text of the `MenuItem` is displayed by the `Header` property; the inner cont
 
 Separators are added by including a `Separator` control or a `MenuItem` with a header of `"-"`.
 
-## Menu Commands
+# Menu Commands
 
 Like `Button`, commands can be [bound](/docs/binding/binding-to-commands) to `MenuItem`s. The
 command will be executed when the menu item is clicked or selected with the keyboard:
@@ -48,7 +48,7 @@ command will be executed when the menu item is clicked or selected with the keyb
 > See the [Binding to Commands](/docs/binding/binding-to-commands) section for more information
   on binding to commands.
 
-## Menu Icons
+# Menu Icons
 
 A menu icon can be displayed by placing an `Image` in the `Icon` property:
 
@@ -60,7 +60,7 @@ A menu icon can be displayed by placing an `Image` in the `Icon` property:
     </MenuItem>
 ```
 
-## Checkboxes
+# Checkboxes
 
 Similarly, a `CheckBox` can be displayed in the `Icon` property to make the `MenuItem` checkable:
 

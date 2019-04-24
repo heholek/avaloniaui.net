@@ -154,7 +154,7 @@ void MyHandler(object sender, RoutedEventArgs e)
         case RoutingStrategies.Tunnel:
           // Tunneling event
           break;
-        case RoutingStrategies.Tunnel:
+        case RoutingStrategies.Bubble:
           // Bubbling event
           break;
     }

@@ -1,5 +1,5 @@
 @{
-    List<Tuple<string, string>> pages = new List<Tuple<string, string>>
+    List<Tuple<string, string>> topLevelPages = new List<Tuple<string, string>>
     {
         Tuple.Create("Blog", Context.GetLink("blog")),
         Tuple.Create("Documentation", Context.GetLink("docs")),
@@ -7,9 +7,9 @@
         Tuple.Create("API", Context.GetLink("api")),
         Tuple.Create("<i class=\"fa fa-github\"></i> Source", "https://github.com/AvaloniaUI/Avalonia")
     };
-    foreach(Tuple<string, string> page in pages)
+    foreach(Tuple<string, string> topLevelPage in topLevelPages)
     {
-        string active = Context.GetLink(Document).StartsWith(page.Item2) ? "active" : null;
-        <li class="@active"><a href="@page.Item2">@Html.Raw(page.Item1)</a></li>
+        string active = Context.GetLink(Document).StartsWith(topLevelPage.Item2) ? "active" : null;
+        <li class="@active"><a href="@topLevelPage.Item2">@Html.Raw(topLevelPage.Item1)</a></li>
     }
 }

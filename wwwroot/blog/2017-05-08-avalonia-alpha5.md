@@ -32,7 +32,7 @@ We no longer pretend that desktop-like Window is a thing on mobile platforms (pr
 
 Mobile integration now looks something like this:
 
-```c#
+```csharp
 public override bool FinishedLaunching(UIApplication uiapp, NSDictionary options)
 {
 	AppBuilder.Configure<App>()
@@ -43,7 +43,7 @@ public override bool FinishedLaunching(UIApplication uiapp, NSDictionary options
 	return true;
 }
 ```
-```c#
+```csharp
 public class MainActivity : AvaloniaActivity
 {
     protected override void OnCreate(Bundle savedInstanceState)

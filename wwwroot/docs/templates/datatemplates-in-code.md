@@ -11,7 +11,7 @@ to the `FuncDataTemplate<T>` constructor:
 var template = new FuncDataTemplate<Student>(x =>
     new TextBlock
     {
-        Text = new Binding("FirstName"),
+        [!TextBlock.TextProperty] = new Binding("FirstName"),
     });
 ```
 

@@ -41,7 +41,7 @@ namespace Example
 <Window>
 ```
 
-## CommandParameter
+# CommandParameter
 
 You can also pass a parameter to the command using the `CommandParameter` property:
 
@@ -52,12 +52,12 @@ namespace Example
     {
         public MainWindowViewModel()
         {
-            DoTheThing = ReactiveCommand.Create<int>(RunTheThing);
+            DoTheThing = ReactiveCommand.Create<string>(RunTheThing);
         }
 
-        public ReactiveCommand<int, Unit> DoTheThing { get; }
+        public ReactiveCommand<string, Unit> DoTheThing { get; }
 
-        void RunTheThing(int parameter)
+        void RunTheThing(string parameter)
         {
             // Code for executing the command here.
         }
@@ -67,13 +67,29 @@ namespace Example
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
-    <Button Command="{Binding DoTheThing}" CommandParameter="42">Do the thing!</Button>
-<Window>
+    <Button Command="{Binding DoTheThing}" CommandParameter="Hello World">Do the thing!</Button>
+</Window>
+```
+
+Note that no type conversion is carried out on `CommandParameter`, so if you need you type
+parameter to be something other than `string` you must supply an object of that type in XAML.
+For example to pass an `int` parameter you could use:
+
+```xml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Button Command="{Binding DoTheThing}">
+        <Button.CommandParameter>
+            <sys:Int32>42</sys:Int32>
+        </Button.CommandParameter>
+        Do the thing!
+    </Button>
+</Window>
 ```
 
 Like any other property, `CommandParameter` can also be bound.
 
-## Binding To Methods
+# Binding To Methods
 
 Sometimes you just want to call a method when a button is clicked without the ceremony of creating
 a command. You can do that too!
@@ -83,7 +99,7 @@ namespace Example
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public void RunTheThing(int parameter)
+        public void RunTheThing(string parameter)
         {
             // Code for executing the command here.
         }
@@ -93,6 +109,6 @@ namespace Example
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
-  <Button Command="{Binding RunTheThing}" CommandParameter="42">Do the thing!</Button>
+  <Button Command="{Binding RunTheThing}" CommandParameter="Hello World">Do the thing!</Button>
 <Window>
 ```

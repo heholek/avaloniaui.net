@@ -9,7 +9,7 @@ controls.
   `DataContext`. If you want to bind to the control's `DataContext` then you'll need to
   specify that in the binding path.
 
-## Binding to a named control
+# Binding to a named control
 
 If you want to bind to a property on another named control, you can use the control name
 prefixed by a `#` character.
@@ -30,7 +30,7 @@ This is the equivalent to the long-form binding that will be familiar to WPF and
 
 Avalonia supports both syntaxes but the short-form `#` syntax is less verbose.
 
-## Binding to an Ancestor
+# Binding to an Ancestor
 
 You can bind to the logical parent of the target using the `$parent` symbol:
 

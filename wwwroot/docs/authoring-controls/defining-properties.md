@@ -6,7 +6,7 @@ If you are creating a control, you will want to define properties on your contro
 by defining `AvaloniaProperty`s for your control. Avalonia properties consist of two parts: the
 property definition and the CLR getter/setter for the property.
 
-## Registering Styled Properties
+# Registering Styled Properties
 
 Unless you have a good reason not to, you should define properties on your control as _styled
 properties_. Styled properties ensure that your property will work correctly with Avalonia's
@@ -18,7 +18,7 @@ property to access it.
 
 Here's how the `Border` control defines its `Background` property:
 
-```c#
+```csharp
     public static readonly StyledProperty<Brush> BackgroundProperty =
         AvaloniaProperty.Register<Border, Brush>(nameof(Background));
 
@@ -45,14 +45,14 @@ or throws an exception for an invalid value.
 
 > A styled property is analogous to a `DependencyProperty` in other XAML frameworks.
 
-## Using a `StyledProperty` on Another Class
+# Using a `StyledProperty` on Another Class
 
 Sometimes the property you want to add to your control already exists on another
 control, `Background` being a good example. To register a property defined on
 another control, you call `StyledProperty.AddOwner`:
 
 
-```c#
+```csharp
     public static readonly StyledProperty<Brush> BackgroundProperty =
         Border.BackgroundProperty.AddOwner<Panel>();
 
@@ -66,12 +66,12 @@ another control, you call `StyledProperty.AddOwner`:
 > Note: Unlike WPF/UWP, a property must be registered on a class otherwise it cannot
   be set on an object of that class. This may change in future, however.
 
-## Readonly Properties
+# Readonly Properties
 
 To create a readonly property you use the `AvaloniaProperty.RegisterDirect`
 method. Here is how `Visual` registers the readonly `Bounds` property:
 
-```c#
+```csharp
     public static readonly DirectProperty<Visual, Rect> BoundsProperty =
         AvaloniaProperty.RegisterDirect<Visual, Rect>(
             nameof(Bounds),
@@ -91,7 +91,7 @@ registering the property, a getter is passed which is used to access the
 property value through `GetValue` and then `SetAndRaise` is used to notify
 listeners to changes to the property.
 
-## Attached Properties
+# Attached Properties
 
 Attached properties are defined almost identically to styled properties except
 that they are registered using the `RegisterAttached` method and their accessors
@@ -99,7 +99,7 @@ are defined as static methods.
 
 Here's how `Grid` defines its `Grid.Column` attached property:
 
-```c#
+```csharp
     public static readonly AttachedProperty<int> ColumnProperty =
         AvaloniaProperty.RegisterAttached<Grid, Control, int>("Column");
 
@@ -114,7 +114,7 @@ Here's how `Grid` defines its `Grid.Column` attached property:
     }
 ```
 
-## Direct AvaloniaProperties
+# Direct AvaloniaProperties
 
 As its name suggests, `RegisterDirect` isn't just used for registering readonly
 properties. You can also pass a *setter* to `RegisterDirect` to expose a
@@ -128,7 +128,7 @@ unnecessary.
 
 Here is how `ItemsControl.Items` is registered:
 
-```c#
+```csharp
     public static readonly DirectProperty<ItemsControl, IEnumerable> ItemsProperty =
         AvaloniaProperty.RegisterDirect<ItemsControl, IEnumerable>(
             nameof(Items),
@@ -162,13 +162,13 @@ They don't support the following:
 - Overriding default values.
 - Inherited values
 
-## Using a DirectProperty on Another Class
+# Using a DirectProperty on Another Class
 
 In the same way that you can call `AddOwner` on a styled property, you can also
 add an owner to a direct property. Because direct properties reference fields
 on the control, you must also add a field for the property:
 
-```c#
+```csharp
     public static readonly DirectProperty<MyControl, IEnumerable> ItemsProperty =
         ItemsControl.ItemsProperty.AddOwner<MyControl>(
             o => o.Items,
@@ -183,7 +183,7 @@ on the control, you must also add a field for the property:
     }
 ```
 
-## When to use a Direct vs a Styled Property
+# When to use a Direct vs a Styled Property
 
 In general you should declare your properties as styled properties. However, direct properties have
 advantages and disadvantages:

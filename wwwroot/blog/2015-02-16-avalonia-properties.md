@@ -98,7 +98,7 @@ Note, `AvaloniaObject` is defined at a lower level than the concept of "parent c
 This is automatically set by `Visual` (which inherits from `AvaloniaObject`) so you shouldn't usually
 have to worry about it.
 
-## Attached Properties
+# Attached Properties
 
 Attached properties are essentially the same as attached dependency properties in WPF. They are
 defined by calling `AvaloniaProperty.RegisterAttached`:
@@ -108,7 +108,7 @@ public static readonly AvaloniaProperty<int> ColumnProperty =
     AvaloniaProperty.RegisterAttached<Grid, Control, int>("Column");
 ```
 
-## Default Values
+# Default Values
 
 Default values are provided in the call to `AvaloniaProperty.Register` or `RegisterAttached`. If no
 default value is provided the default is taken to be `default(TValue)`.
@@ -125,7 +125,7 @@ FooProperty.OverrideDefaultValue(typeof(AnotherControl), 64);
 ```
 
 
-## Coercion
+# Coercion
 
 Coercion allows a control to react to changes in a property's value and make sure that the value is
 within a valid range. For example a "Percentage" property may only allow values between 0 and 100:

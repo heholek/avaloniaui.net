@@ -1,1 +1,1 @@
-wyam\wyam.exe preview
+wyam preview
