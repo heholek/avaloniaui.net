@@ -14,7 +14,7 @@ property. This command will be executed when the button is clicked. For more inf
 
 [`Click`](/api/Avalonia.Controls/Button/61B1E7A8) is just one of several events that Buttons have.  Another example is [`PointerEnter`](/api/Avalonia.Input/InputElement/B4FED8A5) or [`PointerLeave`](/api/Avalonia.Input/InputElement/0ABE1887).  You can get the full list of Button Events [here](/api/Avalonia.Controls/Button/#Events).
 
-The Button control's full documentation can be found [here](/api/Avalonia.Controls/Button)
+The Button control's full documentation can be found [here](/api/Avalonia.Controls/Button){target="_blank"}
 
 # Common Properties
 
