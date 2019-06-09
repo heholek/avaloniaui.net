@@ -73,6 +73,8 @@ produces following output with **Windows 10**
 ![Basic button](images/button_colors.png)
 
  ## Binding to a View Model Command
+ It is possible to bind a view model command to a simple method or with a ReactiveCommand. There are lots of advantages to the ReactiveCommand binding for all but the simplest user interfaces such as being able to pass an `IObservable<bool>` object in to have it dynamically calculate state.  Both methods are displayed below.  First the "simple" method binding:
+ 
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -95,7 +97,7 @@ public void OnClickCommand()
 }
 ```
 
-or if using ReactiveCommands:
+If using ReactiveCommands:
 ```cs
 public MainWindowViewModel()
 {
