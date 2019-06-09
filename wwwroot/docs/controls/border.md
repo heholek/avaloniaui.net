@@ -20,8 +20,6 @@ An example of a border with a red background, 2 pixel black border, 3 pixel corn
 </Border>
 ```
 
-The Border control's full documentation can be found [here](/api/Avalonia.Controls/Border){target="_blank"}.
-
 # Common Properties
 
 |Property|Description|
