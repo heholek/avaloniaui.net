@@ -81,25 +81,16 @@ namespace RoutingExample
     {
         // The Router associated with this Screen.
         // Required by the IScreen interface.
-        public RoutingState Router { get; }
+        public RoutingState Router { get; } = new RoutingState();
             
         // The command that navigates a user to first view model.
         public ReactiveCommand<Unit, IRoutableViewModel> GoNext { get; }
 
         // The command that navigates a user back.
-        public ReactiveCommand<Unit, Unit> GoBack { get; }
+        public ReactiveCommand<Unit, Unit> GoBack => Router.NavigateBack;
 
         public MainWindowViewModel()
         {
-            // Initialize the Router.
-            Router = new RoutingState();
-
-            // Router uses Splat.Locator to resolve views for
-            // view models, so we need to register our views
-            // using Locator.CurrentMutable.Register* methods.
-            //
-            Locator.CurrentMutable.Register(() => new FirstView(), typeof(IViewFor<FirstViewModel>));
-
             // Manage the routing state. Use the Router.Navigate.Execute
             // command to navigate to different view models. 
             //
@@ -110,24 +101,17 @@ namespace RoutingExample
             GoNext = ReactiveCommand.CreateFromObservable(
                 () => Router.Navigate.Execute(new FirstViewModel(this))
             );
-            
-            // You can also ask the router to go back.
-            GoBack = Router.NavigateBack;
         }
     }
 }
 ```
-
-:::note
-Instead of registering views manually, you can use custom `IViewLocator` implementation, or `Locator.RegisterViewsForViewModels` method which registers all reactive views from an assembly. See [View Location](https://reactiveui.net/docs/handbook/view-location/) for details.
-:::
 
 **MainWindow.xaml**
 
 Now we need to place the `RoutedViewHost` XAML control to our main view. It will resolve and embedd appropriate views for the view models. Note, that you need to import `rxui` namespace for `RoutedViewHost` to work. Additionally, you can override animations that are played when `RoutedViewHost` changes a view — simply override `RoutedViewHost.FadeInAnimation` and `RoutedViewHost.FadeOutAnimation` properties in XAML.
 
 :::note
-For latest versions from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8.0 release on NuGet use `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"` as in the example below.
+For latest builds from MyGet use `xmlns:rxui="http://reactiveui.net"`, for 0.8.0 release on NuGet use `xmlns:rxui="clr-namespace:Avalonia;assembly=Avalonia.ReactiveUI"` as in the example below.
 :::
 
 ```xml
@@ -202,6 +186,11 @@ namespace RoutingExample
     
         public static AppBuilder BuildAvaloniaApp()
         {
+            // Router uses Splat.Locator to resolve views for
+            // view models, so we need to register our views.
+            //
+            Locator.CurrentMutable.Register(() => new FirstView(), typeof(IViewFor<FirstViewModel>));
+                    
             return AppBuilder
                 .Configure<App>()
                 .UseReactiveUI()
@@ -211,6 +200,10 @@ namespace RoutingExample
     }
 }
 ```
+
+:::note
+Instead of registering views manually, you can use custom `IViewLocator` implementation, or `Locator.RegisterViewsForViewModels` method which registers all `IViewFor` implementations from an assembly. See [View Location](https://reactiveui.net/docs/handbook/view-location/) for details.
+:::
 
 Now, you can run the app and see routing in action!
 

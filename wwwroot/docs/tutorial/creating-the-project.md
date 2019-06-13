@@ -36,7 +36,7 @@ First install the Avalonia templates for .NET Core by following the instructions
 Now you can create the application from the template:
 
 ```powershell
-dotnet new avalonia.app.mvvm -o Todo -n Todo
+dotnet new avalonia.mvvm -o Todo -n Todo
 ```
 
   </div>
@@ -50,17 +50,21 @@ The newly created project will be pre-filled with a number of files and director
 
 ```
 Todo
+ |- App.xaml
+ |- App.xaml.cs
  |- Assets
  |   |- avalonia-logo.ico
  |- Models 
+ |- nuget.config 
+ |- Program.cs
+ |- Todo.csproj
+ |- ViewLocator.cs
  |- ViewModels
  |   |- MainWindowViewModel.cs
  |   |- ViewModelBase.cs
  |- Views
  |   |- MainWindow.xaml
- |- App.xaml
- |- Program.cs
- |- ViewLocator.cs
+ |   |- MainWindow.xaml.cs
 ```
 
 You can see there are directories for each of the concepts in the MVVM pattern (models, views and view models) as well as couple of other files and directories:

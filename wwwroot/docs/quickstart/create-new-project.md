@@ -16,8 +16,8 @@ By default these application templates will dual-target .NET Framework 4.6.1 and
 
 Once you have an Avalonia application, two item templates will become available:
 
-- **Window**: Creates a new top-level [`Window`](../guides/controls/window.md)
-- **UserControl**: Create a new [`UserControl`](../guides/controls/usercontrol.md)
+- **Window**: Creates a new top-level [`Window`](../controls/window)
+- **UserControl**: Create a new [`UserControl`](../controls/usercontrol)
 
 # .NET Core
 
@@ -38,5 +38,5 @@ Where `avalonia.app` is the name of the template to use and `MyApp` is the name 
 
 Once you have an Avalonia application, there are two item templates available:
 
-- **`avalonia.window`**: Creates a new top-level [`Window`](../guides/controls/window.md)
-- **`avalonia.usercontrol`**: Create a new [`UserControl`](../guides/controls/usercontrol.md)
+- **`avalonia.window`**: Creates a new top-level [`Window`](../controls/window)
+- **`avalonia.usercontrol`**: Create a new [`UserControl`](../controls/usercontrol)

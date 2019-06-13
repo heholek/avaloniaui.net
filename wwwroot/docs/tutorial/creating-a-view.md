@@ -34,7 +34,7 @@ We're going to create the `UserControl` from a template. Follow the instructions
     "Program.cs" and the "Views" directory):
 
 ```powershell
-dotnet new avalonia.usercontrol -o Views -n TodoListView
+dotnet new avalonia.usercontrol -o Views -n TodoListView  --namespace Todo.Views
 ```
   </div>
 </div>
