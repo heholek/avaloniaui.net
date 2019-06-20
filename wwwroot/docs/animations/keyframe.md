@@ -88,13 +88,12 @@ You can add a delay in a `Animation` by defining the desired delay time on its `
 
 # Repeat
 
-You can set the following repeat behaviors on `RepeatCount` property of an `Animation`.
+You can set the following repeat behaviors on `IterationCount` property of an `Animation`.
 
 |Value|Description|
 |-----|-----------|
-|`None` or `0`|No Repeat|
-|`1` to N|Repeat N times.|
-|`Loop`|Repeat Indefinitely|
+|`0` to N|Play N times.|
+|`INFINITE`|Repeat Indefinitely|
 
 # Playback Direction
 
