@@ -26,7 +26,7 @@ here? How is a view being displayed when the window content is a view model?
 The answer can be found in `ViewLocator.cs` which was a file added by the template:
 
 :::filename
-Views/MainWindow.xaml
+ViewLocator.cs
 :::
 ```csharp
 using System;
@@ -63,7 +63,7 @@ namespace Todo
 }
 ```
 
-`ViewLocator` defines a [data template](/docs/templates/datatemplate.md) which converts view models
+`ViewLocator` defines a [data template](/docs/templates/datatemplate) which converts view models
 into views. It defines two methods:
 
 - `Match(object data)` looks at the data and if the data inherits from `ViewModelBase` it returns
