@@ -123,7 +123,7 @@ var textBlock = new TextBlock();
 var viewModelProperty = textBlock.GetObservable(TextBlock.DataContext)
     .OfType<MyViewModel>()
     .Select(x => x?.Name);
-textBlock.Bind(TextBlock, viewModelProperty);
+textBlock.Bind(TextBlock.TextProperty, viewModelProperty);
 ```
 
 However, it might be preferable to use a XAML binding in this case:
