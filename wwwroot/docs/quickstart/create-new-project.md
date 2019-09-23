@@ -26,7 +26,7 @@ First install the Avalonia templates for .NET Core by following the instructions
 This will add a couple of project templates to `dotnet`:
 
 - **`avalonia.app`**: This will create a barebones Avalonia application
-- **`avalonia.app.mvvm`**: This will create an application that uses the Model-View-ViewModel pattern with [ReactiveUI](https://reactiveui.net/)
+- **`avalonia.mvvm`**: This will create an application that uses the Model-View-ViewModel pattern with [ReactiveUI](https://reactiveui.net/)
 
 To create a project using the templates use `dotnet new`:
 
