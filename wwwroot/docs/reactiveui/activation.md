@@ -45,7 +45,7 @@ This is the UI for the view model you see above.
 This is the code-behind for the `View.xaml` file you see above. Remember to always put a call to `WhenActivated` into your View constructor, otherwise ReactiveUI won't be able to determine when the view model gets activated.
 
 ```cs
-public partial class View : ReactiveWindow<ViewModel>
+public class View : ReactiveWindow<ViewModel>
 {
     public View()
     {
@@ -65,7 +65,7 @@ The `FindControl` method shouldn't be used inside an expression. Instead, create
 :::
 
 ```cs
-public partial class View : ReactiveWindow<ViewModel>
+public class View : ReactiveWindow<ViewModel>
 {
     // Assume the Button control has the Name="ExampleButton" attribute defined in XAML.
     public Button ExampleButton => this.FindControl<Button>("ExampleButton");
