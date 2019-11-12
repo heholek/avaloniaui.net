@@ -1,4 +1,5 @@
 Title: Data Persistence
+Order: 30
 ---
 For better UX, your app should be capable of saving state to the disk when the app is suspending and of restoring state when the app is resuming. [ReactiveUI](https://reactiveui.net) provides facilities allowing you to persist application state by serializing the view model tree when the app is shutting down or suspending. In this tutorial we are going to look through the capabilities of ReactiveUI that help us manage the state which outlives the process. 
 
