@@ -76,11 +76,6 @@ respect to `DynamicResource`:
 In return, `StaticResource` doesn't need to add an event handler to listen for changes in resources
 which means it uses slightly less memory.
 
-:::note
-In WPF and UWP `StaticResource` can reference a resource in `App.xaml`. This is not the case in
-Avalonia because a window can opt-out of `Application` resources and styles.
-:::
-
 # Overriding resources
 
 Resources are resolved by walking up the logical tree from the point of the `DynamicResource` or
