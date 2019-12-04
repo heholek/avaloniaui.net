@@ -62,7 +62,7 @@ window.Hide();
 window.Show();
 ```
 
-See also [Prevent a window from closing](http://localhost:5080/docs/quickstart/window#prevent-a-window-from-closing)
+See also [Prevent a window from closing](#prevent-a-window-from-closing)
 
 # Show a window as a dialog
 
