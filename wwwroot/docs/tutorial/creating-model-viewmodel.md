@@ -52,11 +52,11 @@ We'll do this in a service called `Database` and put this in a `Services` direct
 :::filename
 Services/Database.cs
 :::
- ```csharp
+```csharp
 using System.Collections.Generic;
 using Todo.Models;
 
- namespace Todo.Services
+namespace Todo.Services
 {
     public class Database
     {
@@ -68,7 +68,7 @@ using Todo.Models;
         };
     }
 }
- ```
+```
 
 # Create a View Model
 

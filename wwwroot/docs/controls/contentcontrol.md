@@ -34,7 +34,7 @@ If you assign a control to a `ContentControl` then it will display the control, 
 
 ```xml
 <ContentControl>
-  <Button>Click Me!<Button>
+  <Button>Click Me!</Button>
 </ContentControl>
 ```
 
@@ -93,7 +93,7 @@ property:
       </DataTemplate>
     </ContentControl.ContentTemplate>
   </ContentControl>
-<Window>
+</Window>
 ```
 ![Student first and last name](images/student-first-last-name.png)
 

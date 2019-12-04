@@ -30,7 +30,7 @@ available to the `Window`/`UserControl` and its children:
   <UserControl.Resources>
     <SolidColorBrush x:Key="Warning">Yellow</SolidColorBrush>
   </UserControl.Resources>
-</Application>
+</UserControl>
 ```
 
 Or in fact any control at all:
@@ -44,7 +44,7 @@ Or in fact any control at all:
       <SolidColorBrush x:Key="Warning">Yellow</SolidColorBrush>
     </StackPanel.Resources>
   </StackPanel>
-</Application>
+</Window>
 ```
 
 You can also declare resources on styles:
@@ -104,7 +104,7 @@ Resources are resolved by walking up the logical tree from the point of the `Dyn
       Look out!
     </Border>
   </StackPanel>
-</Application>
+</UserControl>
 ```
 
 Here's the `Border`'s background will be `Orange` because its parent `StackPanel` has "overridden"

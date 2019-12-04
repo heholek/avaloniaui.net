@@ -17,7 +17,7 @@ A basic Avalonia XAML file looks like this:
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-<Window>
+</Window>
 ```
 
 There are three parts to this file:
@@ -39,7 +39,7 @@ to add a button as the child of the window you would write:
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Button>Hello World!</Button>
-<Window>
+</Window>
 ```
 
 See the [controls documentation](/docs/controls) for a list of the controls included with Avalonia.
@@ -53,7 +53,7 @@ a button with a blue background you could write:
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Button Background="Blue">Hello World!</Button>
-<Window>
+</Window>
 ```
 
 You can also use _property element syntax_ for setting properties. For more information see the
@@ -68,7 +68,7 @@ element. This could also be written as a property using:
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Button Content="Hello World"/>
-<Window>
+</Window>
 ```
 
 This is because [`Button.Content`](api/Avalonia.Controls/ContentControl/4B02A756) is declared as a
@@ -83,7 +83,7 @@ You can bind a property using the `{Binding}` markup extension:
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Button Content="{Binding Greeting}"/>
-<Window>
+</Window>
 ```
 
 For more information, see the [binding documentation](/docs/binding).

@@ -38,7 +38,7 @@ namespace Example
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
     <Button Command="{Binding DoTheThing}">Do the thing!</Button>
-<Window>
+</Window>
 ```
 
 # CommandParameter
@@ -110,5 +110,5 @@ namespace Example
 ```xml
 <Window xmlns="https://github.com/avaloniaui">
   <Button Command="{Binding RunTheThing}" CommandParameter="Hello World">Do the thing!</Button>
-<Window>
+</Window>
 ```

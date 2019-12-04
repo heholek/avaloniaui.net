@@ -12,10 +12,10 @@ and subsequently animates the change according to its parameters. They can be de
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Background" Value="Red"/>
-            <Setter Property="Opacity" Value="0.5"/> 
+            <Setter Property="Opacity" Value="0.5"/>
         </Style>
         <Style Selector="Rectangle.red:pointerover">
-            <Setter Property="Opacity" Value="1"/> 
+            <Setter Property="Opacity" Value="1"/>
         </Style>
     </Window.Styles>
 
@@ -25,7 +25,7 @@ and subsequently animates the change according to its parameters. They can be de
         </Rectangle.Transitions>
     </Rectangle>
 
-<Window>
+</Window>
 ```
 
 The above example will listen to changes in the `Rectangle`'s `Opacity` property, and when the
@@ -41,7 +41,7 @@ target property and encapsulating them in a `Transitions` object, like so:
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="100"/>
             <Setter Property="Background" Value="Red"/>
-            <Setter Property="Opacity" Value="0.5"/> 
+            <Setter Property="Opacity" Value="0.5"/>
             <Setter Property="Transitions">
                 <Transitions>
                     <DoubleTransition Property="Opacity" Duration="0:0:0.2"/>
@@ -49,13 +49,13 @@ target property and encapsulating them in a `Transitions` object, like so:
             </Setter>
         </Style>
         <Style Selector="Rectangle.red:pointerover">
-            <Setter Property="Opacity" Value="1"/> 
+            <Setter Property="Opacity" Value="1"/>
         </Style>
     </Window.Styles>
 
     <Rectangle Classes="red"/>
 
-<Window>
+</Window>
 ```
 
 Every transition has a `Property`, `Delay`, `Duration` and an optional `Easing` property. 
