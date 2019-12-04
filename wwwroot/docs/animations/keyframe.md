@@ -32,7 +32,7 @@ Keyframe animations are applied using styles. They can be defined on any style b
     </Window.Styles>
 
     <Rectangle Classes="red"/>
-<Window>
+</Window>
 ```
 
 The example above animates the target `Control` as defined by its [selector](/docs/styles/selectors).

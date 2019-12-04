@@ -122,7 +122,7 @@ Using the `DataTemplates` collection the previous example could be written as:
   </Window.DataTemplates>
 
   <local:Student FirstName="Jane" LastName="Deer"/>
-<Window>
+</Window>
 ```
 
 Using this mechanism, if you want to reuse a `DataTemplate` everywhere in a `Window` you can
@@ -176,7 +176,7 @@ in the `MainWindowViewModel.Content` property, the appropriate view will be disp
   </Window.DataTemplates>
 
   <ContentControl Content="{Binding Content}"/>
-<Window>
+</Window>
 ```
 
 # Evaluation Order

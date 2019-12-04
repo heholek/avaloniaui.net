@@ -30,7 +30,7 @@ Styles can be defined on any control or on the `Application` object by adding th
     </Window.Styles>
 
     <TextBlock Classes="h1">I'm a Heading!</TextBlock>
-<Window>
+</Window>
 ```
 
 A style applies to the control that it is defined on and all descendent controls.
@@ -143,7 +143,7 @@ _closest to the control_ will win. Consider the following example:
             I'm a Heading!
         </TextBlock>
     </StackPanel>
-<Window>
+</Window>
 ```
 
 Here the `h1` style is defined in multiple places. The `TextBlock` will end up with the following
