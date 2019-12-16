@@ -127,7 +127,7 @@ relationship (`TodoListView` is a child of `MainWindow`). This might give us a c
 Edit the `MainWindowViewModel.cs` file to look like this:
 
 :::filename
-ViewModels/MainWindowViewModel.cs
+App.xaml.cs
 :::
 ```csharp
 using Todo.Services;
@@ -146,19 +146,23 @@ namespace Todo.ViewModels
 }
 ```
 
-Finally, edit the `AppMain` method in `Program.cs` to create an instance of `Database` and pass it
-to `MainWindowViewModel`:
+Finally, edit the `OnFrameworkInitializationCompleted` method in `App.xaml.cs` to create an instance
+of `Database` and pass it to `MainWindowViewModel`:
 
 ```csharp
-private static void AppMain(Application app, string[] args)
+public override void OnFrameworkInitializationCompleted()
 {
-    var db = new Database();
-    var window = new MainWindow
-    {
-        DataContext = new MainWindowViewModel(db),
-    };
+    base.OnFrameworkInitializationCompleted();
 
-    app.Run(window);
+    if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        var db = new Database();
+
+        desktop.MainWindow = new MainWindow
+        {
+            DataContext = new MainWindowViewModel(db),
+        };
+    }
 }
 ```
 
