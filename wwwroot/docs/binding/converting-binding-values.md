@@ -61,3 +61,31 @@ Usage is identical to other XAML frameworks:
   <TextBlock Text="{Binding Value, Converter={StaticResource myConverter}}"/>
 </Window>
 ```
+
+# Built-in Converters
+
+Avalonia supplies a number of built-in value converters for common scenarios:
+
+| Converter | Description |
+| ---- | ----------- |
+| `StringConverters.IsNullOrEmpty` | Returns `true` if the input string is null or empty |
+| `StringConverters.IsNOtNullOrEmpty` | Returns `false` if the input string is null or empty |
+| `ObjectConverters.IsNull` | Returns `true` if the input is null |
+| `ObjectConverters.IsNotNull` | Returns `false` if the input is null |
+| `BoolConverters.And` | A multi-value converter that returns `true` if all inputs are true. |
+
+## Examples
+
+Hiding a `TextBlock` if the bound text is null or empty:
+
+```csharp
+<TextBlock Text="{Binding MyText}"
+           IsVisible="{Binding MyText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"/>
+```
+
+Hiding a `ContentControl` if the bound content is null or empty:
+
+```csharp
+<ContentControl Content="{Binding MyContent}"
+                IsVisible="{Binding MyContent, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+```
