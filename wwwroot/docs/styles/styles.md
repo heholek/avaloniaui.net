@@ -1,6 +1,7 @@
 Title: Styles
-Order: 20
+Order: 10
 ---
+
 Styles in Avalonia are used to share property settings between controls. The Avalonia styling
 system can be thought of as a mix of CSS styling and WPF/UWP styling. At its most basic, a
 style consists of a _selector_ and a collection of _setters_. 
@@ -34,6 +35,12 @@ Styles can be defined on any control or on the `Application` object by adding th
 ```
 
 A style applies to the control that it is defined on and all descendent controls.
+
+:::note
+Note that unlike WPF/UWP, styles will have no effect if they're added to a control or application
+`ResourceDictionary`. This is because the order that styles are defined in Avalonia is important
+and `ResourceDictionary` is an unsorted dictionary.
+:::
 
 # Style Classes
 
