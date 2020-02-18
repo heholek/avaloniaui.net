@@ -26,6 +26,152 @@ each item inside a red border with rounded corners:
 </ListBox>
 ```
 
+# Containers
+
+Each item displayed in a `ListBox` will be wrapped in a `ListBoxItem` - this is called the
+_container_. The container hosts the content specified in the `ItemTemplate` but it is not part of
+the `ItemTemplate` itself. It is the container that contains the logic for displaying selected
+items.
+
+Sometimes you will want to customize the container itself. You can do this by including a style
+targeting `ListBoxItem` in the `ListBox`:
+
+```xml
+<ListBox Items="{Binding Items}">
+    <ListBox.Styles>
+        <!-- Give the ListBoxItems a fixed with of 100 and right-align them -->
+        <Style Selector="ListBoxItem">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+    </ListBox.Styles>
+<ListBox>
+```
+
+:::note
+In WPF and UWP this is done via the `ItemContainerStyle` - this property does not exist in Avalonia;
+you should use the method outlined above.
+:::
+
+# Selection
+
+There are several properties related to selection on `ListBox`:
+
+:::note
+It is reccomended thay you only bind one of the `SelectedIndex`, `SelectedItem`, `SelectedItems` or
+`Selection` properties. Although binding any combination of these properties is supported, they may
+interact in unexpected ways.
+:::
+
+## SelectionMode
+
+Controls the type of selection that can be made of the `ListBox`:
+
+|Property|Description|
+|--------|-----------|
+|`Single`|Only a single item ca be selected (default)|
+|`Multiple`|Multiple items can be selected|
+|`Toggle`|Item selection can be toggled by tapping/spacebar. When not enabled, shift or ctrl must be used to select mutiple items|
+|`AlwaysSelected`|An item will always be selected as long as there are items to select.|
+
+These values can be combined, e.g.:
+
+```xml
+<ListBox SelectionMode="Multiple,Toggle">
+```
+
+## SelectedIndex
+
+Exposes the index of the selected item, or in the case of multiple selection the first selected
+item. You will often want to bind this to a view model if your list `SelectionMode` is set to
+`Single`.
+
+```xml
+<ListBox SelectedIndex="{Binding SelectedIndex}">
+```
+
+By default bindings to this property are two-way.
+
+## SelectedItem
+
+Exposes the selected item in the `Items` collection, or in the case of multiple selection the first
+selected item. You will often want to bind this to a view model if your list `SelectionMode` is set
+to `Single`.
+
+```xml
+<ListBox SelectedIndex="{Binding SelectedItem}">
+```
+
+By default bindings to this property are two-way.
+
+:::note
+Do not bind to this property if your `Items` collection contains duplicates as it is impossible to
+distinguish between duplicate values.
+:::
+
+## Selection
+
+The `Selection` property exposes an `ISelectionModel` object which exposes various methods to track
+multiple selected items. You can create a `SelectionModel` object in your view model and bind it
+to this property and subsequently control the selection from your view model.
+
+:::note
+`ISelectionModel` is optimized for large collections. Because of this it is recommended that you
+use this property in preference to `SelectedItems` for performance reasons.
+:::
+
+`SelectionModel` also exposes batching functionality through its `Update()` method and a
+`SelectionChanged` event which details exactly which items have been selected and deselected.
+
+```xml
+<ListBox Items="{Binding Items} Selection="{Binding Selection}">
+```
+
+```chsarp
+public class MyViewModel
+{
+    public MyViewModel()
+    {
+        Items = CreateItems();
+
+        // SelectionModel.Source can be set to Items here, or if it is left null it will be set by
+        // the `ListBox` when bound.
+        Selection = new SelectionModel());
+        Selection.SelectionChanged += SelectionChanged;
+
+        // Select item 10 in Items.
+        Selection.Select(10);
+    }
+
+    public ObservableCollection<MyItem> Items { get; }
+    public SelectionModel Selection { get; }
+
+    // A method bound to e.g. a button which will select the first 100 items.
+    public void SelectFirst100() => Selection.SelectRange(0, 99);
+
+    // Switch to single selection via the view model.
+    public void SwitchToSingleSelect() => Selection.SingleSelect = true;
+
+    void SelectionChanged(object sender, SelectionModelSelectionChangedEventArgs e)
+    {
+        // ... handle selection changed
+    }
+}
+```
+
+By default bindings to this property are one-way.
+
+## SelectedItems
+
+This property holds the selected items in an `IList`. It can be bound to any list that implements
+`IList` but it will usually be bound to a collection which also implements `INotifyCollectionChanged`
+such as `ObservableCollection<>`.
+
+:::note
+For various reasons the performance of `SelectedItems` can be very poor, particularly on large
+collections. It is recommended that you use the `Selection` property instead.
+:::
+
 # Preventing Horizontal Scrolling
 
 By default if an item is too wide to display in the `ListBox`, a horizontal scrollbar will be
