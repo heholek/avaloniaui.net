@@ -65,11 +65,11 @@ interact in unexpected ways.
 
 ## SelectionMode
 
-Controls the type of selection that can be made of the `ListBox`:
+Controls the type of selection that can be made on the `ListBox`:
 
 |Property|Description|
 |--------|-----------|
-|`Single`|Only a single item ca be selected (default)|
+|`Single`|Only a single item can be selected (default)|
 |`Multiple`|Multiple items can be selected|
 |`Toggle`|Item selection can be toggled by tapping/spacebar. When not enabled, shift or ctrl must be used to select mutiple items|
 |`AlwaysSelected`|An item will always be selected as long as there are items to select.|
