@@ -33,9 +33,8 @@ Content="{Binding List}"
 ```
 
 `{Binding}` is a markup extension which instantiates a [binding](/docs/binding/bindings) to a 
-property on a control's `DataContext`. You'll remember that in `Program.cs` we [assigned an
-instance of `MainWindowViewModel` to the window's `DataContext` property](/docs/tutorial/creating-model-viewmodel#creating-an-instance-of-todolistviewmodel).
-
+property on a control's `DataContext`. You'll remember that in `App.xaml.cs` we [assigned an
+instance of `MainWindowViewModel` to the window's `DataContext` property](/docs/tutorial/creating-model-viewmodel#create-an-instance-of-todolistviewmodel).
 :::note
 The `Window.Content` property can either be set by placing a control as a child of the `Window`
 ([as we were doing previously](/docs/tutorial/creating-a-view#display-the-view-in-the-window)),
