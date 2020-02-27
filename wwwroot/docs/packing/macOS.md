@@ -89,26 +89,26 @@ Create your `Info.plist` file, adding or modifying keys as necessary:
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>myicon-logo.icns</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.identifier</string>
-	<key>CFBundleName</key>
-	<string>DotPurple</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>10.12</string>
-	<key>CFBundleExecutable</key>
-	<string>MyApp.Avalonia</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>NSHighResolutionCapable</key>
-	<true/>
+    <key>CFBundleIconFile</key>
+    <string>myicon-logo.icns</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.identifier</string>
+    <key>CFBundleName</key>
+    <string>DotPurple</string>
+    <key>CFBundleVersion</key>
+    <string>1.0.0</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.12</string>
+    <key>CFBundleExecutable</key>
+    <string>MyApp.Avalonia</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
 </dict>
 </plist>
 ```
@@ -157,8 +157,8 @@ First, enable Hardened Runtime with [exceptions](https://developer.apple.com/doc
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>com.apple.security.cs.allow-jit</key>
-	<true/>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
     <key>com.apple.security.automation.apple-events</key>
     <true/>
 </dict>
