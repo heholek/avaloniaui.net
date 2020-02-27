@@ -2,7 +2,7 @@ Title: macOS Packing
 Order: 0
 ---
 
-macOS applications are typically distributed in a `.app` [application bundle](https://en.wikipedia.org/wiki/Bundle_(macOS)#macOS_application_bundles). To make .NET Core and Avalonia projects work in a .app bundle, some extra legwork has to be done after your application has gone through the publishing process.
+macOS applications are typically distributed in a `.app` [application bundle](https://en.wikipedia.org/wiki/Bundle_(macOS)#macOS_application_bundles). To make .NET Core and Avalonia projects work in a `.app` bundle, some extra legwork has to be done after your application has gone through the publishing process.
 
 With Avalonia, you'll have a `.app` folder structure that looks like this:
 
@@ -30,7 +30,7 @@ MyProgram.app
 
 For more information on `Info.plist`, see [Apple's documentation here]((https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html)).
 
-# Making the .app 
+# Making the application bundle
 
 There are a few options available for creating the `.app` file/folder structure. You can do this on any operating system, since a `.app` file is just a set of folders laid out in a specific format and the tooling isn't specific to one operating system.
 
