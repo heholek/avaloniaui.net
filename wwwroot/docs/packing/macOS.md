@@ -191,7 +191,7 @@ echo "[INFO] Signing app file"
 codesign --force --timestamp --options=runtime --entitlements "$ENTITLEMENTS" --sign "$SIGNING_IDENTITY" "$APP_NAME"
 ```
 
-The `--options=runtime` part of the `codesign` line is what enables the hardened runtime with your app. Because [.NET Core may not be fully compatible with hardened runtime](https://github.com/dotnet/runtime/issues/10562#issuecomment-503013071), we add some exceptions to use JIT-compiled code and allow for Apple Events to be sent. The JIT-compiled code exception is required to run Avalonia apps under hardened runtime. We add the second exception for Apple Events to fix an error that shows up in your console (and any potential issues at the notarization stage). Other exceptions are from the [given by Microsoft as necessary](https://docs.microsoft.com/en-us/dotnet/core/install/macos-notarization-issues#default-entitlements).
+The `--options=runtime` part of the `codesign` line is what enables the hardened runtime with your app. Because [.NET Core may not be fully compatible with hardened runtime](https://github.com/dotnet/runtime/issues/10562#issuecomment-503013071), we add some exceptions to use JIT-compiled code and allow for Apple Events to be sent. The JIT-compiled code exception is required to run Avalonia apps under hardened runtime. We add the second exception for Apple Events to fix an error that shows up in your console (and any potential issues at the notarization stage). Other exceptions are [listed as necessary by Microsoft](https://docs.microsoft.com/en-us/dotnet/core/install/macos-notarization-issues#default-entitlements).
 
 Once your app is code signed, you can verify that it signed properly by making sure that the following command outputs no errors:
 
