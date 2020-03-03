@@ -46,7 +46,7 @@ Add other runtime identifiers as necessary. Each one should be separated by a se
 
 [dotnet-bundle](https://github.com/egramtel/dotnet-bundle) is a [NuGet package](https://www.nuget.org/packages/Dotnet.Bundle/) that publishes your project and then creates the `.app` file for you.
 
-You'll first have to add the project as a `PackageReference` in your project. Add it to your project via NuGet package manager or by adding the following line to your `.csproj` file (run `dotnet restore` after you do this!):
+You'll first have to add the project as a `PackageReference` in your project. Add it to your project via NuGet package manager or by adding the following line to your `.csproj` file:
 
 ```xml
 <PackageReference Include="Dotnet.Bundle" Version="*" />
@@ -55,6 +55,7 @@ You'll first have to add the project as a `PackageReference` in your project. Ad
 After that, you can create your `.app` by executing the following on the command line:
 
 ```
+dotnet restore -r osx-x64
 dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-x64
 ```
 
