@@ -70,7 +70,24 @@ or if you want to specify a different app name:
 dotnet msbuild -t:BundleApp -p:RuntimeIdentifier=osx-x64 -p:CFBundleDisplayName=MyBestThingEver
 ```
 
-By default, this will put the `.app` file in the same place as the `publish` output: `[project directory]/bin/{Configuration}/netcoreapp3.1/osx-x64/publish/MyBestThingEver.app`.
+Instead of specifying `CFBundleDisplayName`, etc., on the command line, you can also specify them in your project file:
+
+```xml
+<PropertyGroup>
+    <CFBundleName>AppName</CFBundleName> <!-- Also defines .app file name -->
+    <CFBundleDisplayName>MyBestThingEver</CFBundleDisplayName>
+    <CFBundleIdentifier>com.example</CFBundleIdentifier>
+    <CFBundleVersion>1.0.0</CFBundleVersion>
+    <CFBundlePackageType>AAPL</CFBundlePackageType>
+    <CFBundleSignature>????</CFBundleSignature>
+    <CFBundleExecutable>AppName</CFBundleExecutable>
+    <CFBundleIconFile>AppName.icns</CFBundleIconFile> <!-- Will be copied from output directory -->
+    <NSPrincipalClass>NSApplication</NSPrincipalClass>
+    <NSHighResolutionCapable>true</NSHighResolutionCapable>
+</PropertyGroup>
+```
+
+By default, `dotnet-bundle` will put the `.app` file in the same place as the `publish` output: `[project directory]/bin/{Configuration}/netcoreapp3.1/osx-x64/publish/MyBestThingEver.app`.
 
 For more information on the parameters you can send, see the [dotnet-bundle documentation](https://github.com/egramtel/dotnet-bundle).
 
