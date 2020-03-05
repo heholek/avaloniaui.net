@@ -35,7 +35,8 @@ For more information see
   </div>
 </div>
 
-A window consists of two parts: a XAML file (e.g. `MainWindow.xaml`) and a codebehind file (e.g.
+A window consists of two parts: a [XAML file](/docs/quickstart/intro-to-xaml)
+(e.g. `MainWindow.xaml`) and a [codebehind file](/docs/quickstart/codebehind) (e.g.
 `MainWindow.xaml.cs`). The codebehind defines a .NET class which represents the window.
 
 For more information and examples, see [the `Window` control](/docs/controls/window).

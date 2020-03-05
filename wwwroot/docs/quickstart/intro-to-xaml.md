@@ -16,7 +16,8 @@ A basic Avalonia XAML file looks like this:
 
 ```xml
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApplication1.MainWindow">
 </Window>
 ```
 
@@ -29,6 +30,8 @@ There are three parts to this file:
 - `xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"` - this is the XAML-language XAML
   namespace. This isn't strictly necessary, but you will probably need it for accessing certain
   features of the XAML language.
+- `x:Class="AvaloniaApplication1.MainWindow"` - this tells the XAML compiler where to find
+  the associated class for this file, defined in [code-behind](/docs/quickstart/codebehind)
 
 # Declaring Controls
 
@@ -87,3 +90,8 @@ You can bind a property using the `{Binding}` markup extension:
 ```
 
 For more information, see the [binding documentation](/docs/binding).
+
+# Code-behind
+
+Many XAML files also have an associated _code-behind_ file which usually has the extension
+`.xaml.cs`. For more information see the [codebehind documentation](/docs/quickstart/codebehind).
