@@ -175,16 +175,137 @@ When the `Button` is clicked it invokes its `Command`, causing the bound `MainWi
 
 ## Controls
 
+Avalonia provides many core controls. Here are some of the most common:
+
+- Buttons: [`Button`](/docs/controls/button), [`RepeatButton`](/docs/controls/repeatbutton)
+- Data Display: [`ItemsControl`](/docs/controls/itemscontrol), [`ItemsRepeater`](docs/controls/itemsrepeater), [`ListBox`](/docs/controls/listbox), [`TreeView`](/docs/controls/treeview) 
+- Input: [`CheckBox`](/docs/controls/checkbox), [`ComboBox`](/docs/controls/combobox), [`RadioButton`](/docs/controls/radiobutton), [`Slider`](/docs/controls/slider), [`TextBox`](/docs/controls/textbox)
+- Layout: [`Border`](/docs/controls/border), [`Canvas`](/docs/controls/canvas), [`DockPanel`](/docs/controls/dockpanel), [`Expander`](/docs/controls/expander), [`Grid`](/docs/controls/grid), [`GridSplitter`](/docs/controls/gridsplitter), [`Panel`](/docs/controls/panel), [`Separator`](/docs/controls/separator), [`ScrollBar`](/docs/controls/scrollbar), [`ScrollViewer`](/docs/controls/scrollviewer), [`StackPanel`](/docs/controls/stackpanel), [`Viewbox`](/docs/controls/viewbox), [`WrapPanel`](/docs/controls/wrappanel)
+- Menus: [`ContentMenu`](/docs/controls/contextmenu), [`Menu`](/docs/controls/menu), [`NativeMenu`](/docs/controls/nativemenu)
+- Navigation: [`TabControl`](/docs/controls/tabcontrol), [`TabStrip`](/docs/controls/tabstrip)
+- User Information: [`ProgressBar`](/docs/controls/progressbar), [`TextBlock`](/docs/controls/textblock), [`ToolTip`](/docs/controls/tooltip)
+
 ## Input and Commands
+
+Controls most often detect and respond to user input. The Avalonia [input system](/docs/input) uses both [direct and routed events](docs/input/events) to support text input, focus management, and mouse positioning.
+
+Applications often have complex input requirements. Avalonia provides a [command system](/docs/binding/binding-to-commands) that separates user-input actions from the code that responds to those actions.
 
 ## Layout
 
+When you create a user interface, you arrange your controls by location and size to form a layout. A key requirement of any layout is to adapt to changes in window size and display settings. Rather than forcing you to write the code to adapt a layout in these circumstances, Avalonia provides a first-class, extensible layout system for you.
+
+The cornerstone of the layout system is relative positioning, which increases the ability to adapt to changing window and display conditions. In addition, the layout system manages the negotiation between controls to determine the layout. The negotiation is a two-step process: first, a control tells its parent what location and size it requires; second, the parent tells the control what space it can have.
+
+The layout system is exposed to child controls through base Avalonia classes. For common layouts such as grids, stacking, and docking, Avalonia includes several layout controls:
+
+- [`Panel`](/docs/controls/panel): Child controls are stacked on top of each other to fill the panel
+- [`Canvas`](/docs/controls/canvas): Child controls provide their own layout
+- [`DockPanel`](/docs/controls/dockpanel): Child controls are aligned to the edges of the panel
+- [`Grid`](/docs/controls/grid): Child controls are positioned by rows and columns
+- [`StackPanel`](/docs/controls/stackpanel): Child controls are stacked either vertically or horizontally
+- [`WrapPanel`](/docs/controls/wrappanel): Child controls are positioned in left-to-right order and wrapped to the next line when there are more controls on the current line than space allows
+
+You can also create your own layouts by [deriving from the `Panel` class](/docs/layout/creating-a-panel).
+
 ## Data Binding
+
+Avalonia includes comprehensive support for [binding](/docs/binding/bindings) between controls and to aribtrary .NET objects. Data binding can be set up [in XAML](/docs/binding/bindings) or [in code](/docs/binding/binding-from-code) and supports:
+
+- Multiple binding modes: one way, two way, one-time and one-way to source
+- Binding to a [`DataContext`](/docs/binding/datacontext)
+- Binding to [other controls](docs/binding/binding-to-controls)
+- Binding to [`Task`s and `Observables`]((docs/binding/binding-to-tasks-and-observables))
+- Binding [converters](/docs/binding/converting-binding-values) and negating binding values
+
+The following example shows a `TextBlock` when an associated `TextBox` is disabled, by using a binding:
+
+:::filename
+XAML
+:::
+```xml
+<StackPanel>
+    <TextBox Name="input" IsEnabled="False"/>
+    <TextBlock IsVisible="{Binding !#input.IsEnabled}">Sorry, no can do!</TextBlock>
+</StackPanel>
+```
+
+In this example, a binding is set up to the `IsEnabled` property of the `input` control using `#input.IsEnabled` and the value of that binding is negated and fed into the `TextBlock.IsVisible` property.
+
+## Styling
+
+[Styles in Avalonia](/docs/styling/styles) are used to share property settings between controls. The Avalonia styling system can be thought of as a mix of CSS styling and WPF/UWP styling. At its most basic, a style consists of a _selector_ and a collection of _setters_. 
+
+The following style selects any `TextBlock` in the `Window` with a `h1` _style class_ and sets its font size to 24
+point and font weight to bold:
+
+:::filename
+XAML
+:::
+```xml
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Window.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Styles>
+
+    <TextBlock Classes="h1">I'm a Heading!</TextBlock>
+</Window>
+```
 
 ## Graphics
 
-## Animation
+Avalonia introduces an extensive, scalable, and flexible set of graphics features that have the following benefits:
 
-## Text and Typography
+- Resolution-independent and device-independent graphics. The basic unit of measurement in the Avalonia graphics system is the device-independent pixel, which is 1/96th of an inch, regardless of actual screen resolution, and provides the foundation for resolution-independent and device-independent rendering. Each device-independent pixel automatically scales to match the dots-per-inch (dpi) setting of the system it renders on.
+- Improved precision. The Avalonia coordinate system is measured with double-precision floating-point numbers rather than single-precision. Transformations and opacity values are also expressed as double-precision.
+- Advanced graphics and animation support. Avalonia simplifies graphics programming by managing animation scenes for you; there is no need to worry about scene processing, rendering loops, and bilinear interpolation. Additionally, Avalonia provides hit-testing support and full alpha-compositing support.
+- Skia. By default Avalonia uses the [Skia rendering engine](https://skia.org/), the same rendering engine that powers Google Chrome and Chrome OS, Android, Mozilla Firefox and Firefox OS, and many other products.
 
-## Data Templates
+### 2D Shapes and Geometries
+
+Avalonia provides a library of common vector-drawn 2D shapes such as `Ellipse`, `Line`, `Path`, `Polygon` and `Rectangle`.
+
+:::filename
+XAML
+:::
+```xml
+<Canvas Background="Yellow" Width="300" Height="400">
+    <Rectangle Fill="Blue" Width="63" Height="41" Canvas.Left="40" Canvas.Top="31">
+    <Rectangle.OpacityMask>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Offset="0" Color="Black"/>
+            <GradientStop Offset="1" Color="Transparent"/>
+        </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+    </Rectangle.OpacityMask>     
+    </Rectangle>
+    <Ellipse Fill="Green" Width="58" Height="58" Canvas.Left="88" Canvas.Top="100"/>
+    <Path Fill="Orange" Data="M 0,0 c 0,0 50,0 50,-50 c 0,0 50,0 50,50 h -50 v 50 l -50,-50 Z" Canvas.Left="30" Canvas.Top="250"/>
+    <Path Fill="OrangeRed" Canvas.Left="180" Canvas.Top="250">
+    <Path.Data>
+        <PathGeometry>
+        <PathFigure StartPoint="0,0" IsClosed="True">
+            <QuadraticBezierSegment Point1="50,0" Point2="50,-50" />
+            <QuadraticBezierSegment Point1="100,-50" Point2="100,0" />
+            <LineSegment Point="50,0" />
+            <LineSegment Point="50,50" />
+        </PathFigure>
+        </PathGeometry>
+    </Path.Data>
+    </Path>
+    <Line StartPoint="120,185" EndPoint="30,115" Stroke="Red" StrokeThickness="2"/>
+    <Polygon Points="75,0 120,120 0,45 150,45 30,120" Stroke="DarkBlue" StrokeThickness="1" Fill="Violet" Canvas.Left="150" Canvas.Top="31"/>
+    <Polyline Points="0,0 65,0 78,-26 91,39 104,-39 117,13 130,0 195,0" Stroke="Brown" Canvas.Left="30" Canvas.Top="350"/>
+</Canvas>
+```
+
+![Drawing shapes](/docs/quickstart/images/shapes.png)
+
+### Animation
+
+Avalonia's animation support lets you make controls grow, shake, spin, and fade, to create interesting page transitions, and more. Avalonia uses a CSS-like animation system which supports [property transitions](/docs/animations/transitions) and [keyframe animations](/docs/animations/keyframe).
