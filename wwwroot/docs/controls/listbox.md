@@ -90,6 +90,19 @@ item. You will often want to bind this to a view model if your list `SelectionMo
 <ListBox SelectedIndex="{Binding SelectedIndex}">
 ```
 
+```csharp
+public MyViewModel : ReactiveObject
+{
+    int selectedIndex;
+
+    public int SelectedIndex
+    {
+        get => selectedIndex;
+        set => this.RaiseAndSetIfChanged(ref selectedIndex, value);
+    }
+}
+```
+
 By default bindings to this property are two-way.
 
 ## SelectedItem
@@ -99,7 +112,20 @@ selected item. You will often want to bind this to a view model if your list `Se
 to `Single`.
 
 ```xml
-<ListBox SelectedIndex="{Binding SelectedItem}">
+<ListBox SelectedItem="{Binding SelectedItem}">
+```
+
+```csharp
+public MyViewModel : ReactiveObject
+{
+    MyItem selectedItem;
+
+    public MyItem SelectedItem
+    {
+        get => selectedItem;
+        set => this.RaiseAndSetIfChanged(ref selectedItem, value);
+    }
+}
 ```
 
 By default bindings to this property are two-way.
@@ -111,9 +137,9 @@ distinguish between duplicate values.
 
 ## Selection
 
-The `Selection` property exposes an `ISelectionModel` object which exposes various methods to track
-multiple selected items. You can create a `SelectionModel` object in your view model and bind it
-to this property and subsequently control the selection from your view model.
+The `Selection` property exposes an `ISelectionModel` object with various methods to track multiple
+selected items. You can create a `SelectionModel` object in your view model and bind it to this
+property and subsequently control the selection from your view model.
 
 :::note
 `ISelectionModel` is optimized for large collections. Because of this it is recommended that you
@@ -127,7 +153,7 @@ use this property in preference to `SelectedItems` for performance reasons.
 <ListBox Items="{Binding Items} Selection="{Binding Selection}">
 ```
 
-```chsarp
+```csharp
 public class MyViewModel
 {
     public MyViewModel()
@@ -171,6 +197,17 @@ such as `ObservableCollection<>`.
 For various reasons the performance of `SelectedItems` can be very poor, particularly on large
 collections. It is recommended that you use the `Selection` property instead.
 :::
+
+```xml
+<ListBox SelectedItems="{Binding SelectedItems}">
+```
+
+```csharp
+public MyViewModel : ReactiveObject
+{
+    public ObservableCollection<MyItem> SelectedItems { get; } = new ObservableCollection<MyItem>();
+}
+```
 
 # Preventing Horizontal Scrolling
 
