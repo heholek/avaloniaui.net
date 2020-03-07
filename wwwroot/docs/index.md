@@ -4,7 +4,7 @@ Order: 50
 
 Welcome to Avalonia! Avalonia is a cross platform XAML Framework for .NET Framework, .NET Core and Mono.
 
-Avalonia is shipped as .NET standard 2.0 [NuGet packages](docs/quickstart/packages) and a [set of templates](/docs/quickstart/create-new-project) for Visual Studio and .NET core. We also have a [visual designer](/docs/quickstart/vs-designer) for Visual Studio.
+Avalonia is shipped as .NET standard 2.0 [NuGet packages](/docs/quickstart/packages) and a [set of templates](/docs/quickstart/create-new-project) for Visual Studio and .NET core. We also have a [visual designer](/docs/quickstart/vs-designer) for Visual Studio.
 
 This page is designed as a whirlwind tour of Avalonia. There are plenty of links throughout to more detailed documentation on each area, or you can navigate using the sections on the left.
 
@@ -15,7 +15,7 @@ If you're familiar with WPF or UWP then you should feel right at home with Avalo
 
 ## Programming with Avalonia
 
-Avalonia lets you develop an appliction using the [XAML markup language](docs/quickstart/into-to-xaml) and C# (or another .NET language) for code. You generally use XAML markup to implement the appearance of an application while using code to implement its behavior.
+Avalonia lets you develop an appliction using the [XAML markup language](/docs/quickstart/intro-to-xaml) and C# (or another .NET language) for code. You generally use XAML markup to implement the appearance of an application while using code to implement its behavior.
 
 ### Markup
 
@@ -43,7 +43,7 @@ Specifically, this XAML defines a window and a button by using the Window and Bu
 
 The following images show the user interface that is defined by the XAML in the previous example running on Windows:
 
-Since XAML is XML-based, the UI that you compose with it is assembled in a hierarchy of nested elements known as an [element tree](docs/advanced/trees). The element tree provides a logical and intuitive way to create and manage UIs.
+Since XAML is XML-based, the UI that you compose with it is assembled in a hierarchy of nested elements known as an [element tree](/docs/advanced/trees). The element tree provides a logical and intuitive way to create and manage UIs.
 
 ![Application window](/docs/quickstart/images/click-me.png)
 
@@ -104,7 +104,7 @@ In this example, the code-behind implements a class that derives from the [`Wind
 
 ### The Model-View-ViewModel Pattern
 
-As well as writing code in code-behind, Avalonia supports using the [Model-View-ViewModel](docs/quickstart/mvvm) pattern (or MVVM). MVVM is a common way to structure UI applications that separates view logic from application logic in a way that allows your applications to become unit-testable.
+As well as writing code in code-behind, Avalonia supports using the [Model-View-ViewModel](/docs/quickstart/mvvm) pattern (or MVVM). MVVM is a common way to structure UI applications that separates view logic from application logic in a way that allows your applications to become unit-testable.
 
 MVVM relies upon Avalonia's [binding](/docs/binding) capabilities to separate your application into a View layer which displays standard Avalonia windows and controls, and a ViewModel layer which defines the functionality of the application independently of Avalonia itself. The following example shows the code from the previous example implemented using the MVVM pattern:
 
@@ -178,7 +178,7 @@ When the `Button` is clicked it invokes its `Command`, causing the bound `MainWi
 Avalonia provides many core controls. Here are some of the most common:
 
 - Buttons: [`Button`](/docs/controls/button), [`RepeatButton`](/docs/controls/repeatbutton)
-- Data Display: [`ItemsControl`](/docs/controls/itemscontrol), [`ItemsRepeater`](docs/controls/itemsrepeater), [`ListBox`](/docs/controls/listbox), [`TreeView`](/docs/controls/treeview) 
+- Data Display: [`ItemsControl`](/docs/controls/itemscontrol), [`ItemsRepeater`](/docs/controls/itemsrepeater), [`ListBox`](/docs/controls/listbox), [`TreeView`](/docs/controls/treeview) 
 - Input: [`CheckBox`](/docs/controls/checkbox), [`ComboBox`](/docs/controls/combobox), [`RadioButton`](/docs/controls/radiobutton), [`Slider`](/docs/controls/slider), [`TextBox`](/docs/controls/textbox)
 - Layout: [`Border`](/docs/controls/border), [`Canvas`](/docs/controls/canvas), [`DockPanel`](/docs/controls/dockpanel), [`Expander`](/docs/controls/expander), [`Grid`](/docs/controls/grid), [`GridSplitter`](/docs/controls/gridsplitter), [`Panel`](/docs/controls/panel), [`Separator`](/docs/controls/separator), [`ScrollBar`](/docs/controls/scrollbar), [`ScrollViewer`](/docs/controls/scrollviewer), [`StackPanel`](/docs/controls/stackpanel), [`Viewbox`](/docs/controls/viewbox), [`WrapPanel`](/docs/controls/wrappanel)
 - Menus: [`ContentMenu`](/docs/controls/contextmenu), [`Menu`](/docs/controls/menu), [`NativeMenu`](/docs/controls/nativemenu)
@@ -187,7 +187,7 @@ Avalonia provides many core controls. Here are some of the most common:
 
 ## Input and Commands
 
-Controls most often detect and respond to user input. The Avalonia [input system](/docs/input) uses both [direct and routed events](docs/input/events) to support text input, focus management, and mouse positioning.
+Controls most often detect and respond to user input. The Avalonia [input system](/docs/input) uses both [direct and routed events](/docs/input/events) to support text input, focus management, and mouse positioning.
 
 Applications often have complex input requirements. Avalonia provides a [command system](/docs/binding/binding-to-commands) that separates user-input actions from the code that responds to those actions.
 
@@ -214,8 +214,8 @@ Avalonia includes comprehensive support for [binding](/docs/binding/bindings) be
 
 - Multiple binding modes: one way, two way, one-time and one-way to source
 - Binding to a [`DataContext`](/docs/binding/datacontext)
-- Binding to [other controls](docs/binding/binding-to-controls)
-- Binding to [`Task`s and `Observables`]((docs/binding/binding-to-tasks-and-observables))
+- Binding to [other controls](/docs/binding/binding-to-controls)
+- Binding to [`Task`s and `Observables`](/docs/binding/binding-to-tasks-and-observables)
 - Binding [converters](/docs/binding/converting-binding-values) and negating binding values
 
 The following example shows a `TextBlock` when an associated `TextBox` is disabled, by using a binding:
@@ -234,7 +234,7 @@ In this example, a binding is set up to the `IsEnabled` property of the `input` 
 
 ## Styling
 
-[Styles in Avalonia](/docs/styling/styles) are used to share property settings between controls. The Avalonia styling system can be thought of as a mix of CSS styling and WPF/UWP styling. At its most basic, a style consists of a _selector_ and a collection of _setters_. 
+[Styles in Avalonia](/docs/styles/styles) are used to share property settings between controls. The Avalonia styling system can be thought of as a mix of CSS styling and WPF/UWP styling. At its most basic, a style consists of a _selector_ and a collection of _setters_. 
 
 The following style selects any `TextBlock` in the `Window` with a `h1` _style class_ and sets its font size to 24
 point and font weight to bold:
