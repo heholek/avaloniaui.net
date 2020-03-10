@@ -3,11 +3,11 @@ Title: Logical and Visual Trees
 
 When you create a user interface in Avalonia, you are creating a tree of controls, for example:
 
-TODO: Image of Logical Tree 
+![Logical Tree](images/logical-tree.png)
 
 The tree is known as the Logical Tree. Controls in Avalonia however are made up of other, more primitive controls. A `CheckBox` for example might consist of a border, a check mark and a piece of text. These controls also make up a tree, which is called the Visual Tree.
 
-TODO: Image of Logical Tree and Visual Trees
+![Logical Tree](images/logical-visual-tree.png)
 
 ## Logical Tree
 
