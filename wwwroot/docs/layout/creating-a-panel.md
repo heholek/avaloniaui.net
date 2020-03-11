@@ -1,5 +1,5 @@
 Title: Create a Custom Panel
-Order: 20
+Order: 30
 ---
 
 This example shows how to override the default layout behavior of the `Panel` element and create custom layout elements that are derived from `Panel`.

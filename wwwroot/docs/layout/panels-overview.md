@@ -12,7 +12,7 @@ Order: 10
   
 ## Panel Common Members  
 
-All `Panel` elements support the base sizing and positioning properties defined by `Control`, including `Height`, `Width`, `HorizontalAlignment`, `VerticalAlignment` and `Margin`. For additional information on positioning properties defined by `Control`, see [Alignment, Margins, and Padding Overview](../advanced/alignment-margins-and-padding-overview).  
+All `Panel` elements support the base sizing and positioning properties defined by `Control`, including `Height`, `Width`, `HorizontalAlignment`, `VerticalAlignment` and `Margin`. For additional information on positioning properties defined by `Control`, see [Alignment, Margins, and Padding Overview](alignment-margins-padding).  
   
 `Panel` exposes additional properties that are of critical importance in understanding and using layout. The `Background` property is used to fill the area between the boundaries of a derived panel element with a `Brush`. `Children` represents the child collection of elements that the `Panel` is comprised of.
    
