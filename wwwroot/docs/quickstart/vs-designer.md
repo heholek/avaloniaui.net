@@ -72,4 +72,4 @@ If you're having problems, try enabling verbose logging. To do this:
 - Select "Avalonia XAML Editor" from the list
 - Select "Verbose" under "Minimum Log Verbosity"
 
-Logs will be displayed in the Visual Studio Output window. Select "Show Output From: Avalonia Diadnostics".
+Logs will be displayed in the Visual Studio Output window. Select "Show Output From: Avalonia Diagnostics".
