@@ -11,6 +11,9 @@ Settings[Keys.DateTimeDisplayCulture] = Settings[Keys.DateTimeInputCulture] =
 
 Settings[Keys.Host] = "avaloniaui.net";
 Settings[DocsKeys.Title] = "Avalonia UI Framework";
+Settings[DocsKeys.ValidateRelativeLinks] = true;
+Settings[DocsKeys.ValidateAbsoluteLinks] = false;
+Settings[DocsKeys.ValidateLinksAsError] = true;
 
 var glob = "avalonia/src/**/{!.git,!bin,!obj,!packages,!*.Tests,!external,!portable.xaml.github,}/**/*.cs";
 
