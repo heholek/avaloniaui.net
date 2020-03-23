@@ -1,104 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Avalonia UI Framework</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700&display=swap" rel="stylesheet">
-  <!--[if IE]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
+{{ partial "head.html" .}}
 
 <body id="home">
   <div class="page">
-    <div id="hero-sidebar">
-      <div id="hero-logo"></div>
-      <div id="hero-blurb">
+    {{ partial "navbar.html" .}}
+
+    <div class="hero-grid">
+      <section id="headline" class="purple-gradient">
+        <div class="avalonia-logo large"></div>
         <h1>Avalonia</h1>
         A cross platform XAML Framework for .NET Framework, .NET Core and Mono At quisi rem quatio. Imporio incipsa
-        sum faccus aceatae optiae veriossit repedis et fugiant adia dolor acepell abore, cum quia paris nest quae de
-        es ipsant
-      </div>
-      <ul id="hero-buttons">
-        <li><button>Get started</button>
-        <li><button>Get support</button>
-      </ul>
+        sum faccus aceatae optiae veriossit repedis et fugiant adia dolor acepell abore, cum quia paris nest quae
+        de es ipsant
+      </section>
+
+      <div class="hero-image"></div>
     </div>
 
-    <div id="hero-nav">
-      {{ partial "navbar.html" . }}
+    <div class="subhero-grid">
+      <section id="xaml" class="small gray1">
+        <h1 class="img-right">XAML <img src="/images/home/xaml.svg"></h1>
+        <p><strong>Avalonia uses a XAML dialect that should feel immediately familiar to anyone coming from WPF, UWP and
+            Xamarin Forms.</strong>
+          <p>Avalonia supports binding, MVVM, lookless controls and data templates just as you’d expect from a XAML
+            framework.</p>
+      </section>
+
+      <section id="xplat" class="small gray2">
+        <h1 class="img-right">Cross Platform <img src="/images/home/xplat.svg"></h1>
+        <p><strong>We support Windows, Linux and OSX with experimental mobile support for Android and iOS.</strong>
+          <p>We currently have Win32, GTK3 and MonoMac windowing backends plus Direct2D and Skia renderers.</p>
+      </section>
+
+      <section id="oss" class="small gray1">
+        <h1 class="img-right">Open Source <img src="/images/home/oss.svg"></h1>
+        <p><strong>Avalonia is developed by a global community of enthusiasts in our GitHub repository and in our gitter
+            channel.</strong>
+          <p>Everything is done in the open and we’re always looking for new contributors. Drop by and say hi!</p>
+      </section>
     </div>
-
-    <div id="hero-main"></div>
-
-    <section id="xaml" class="small gray1">
-      <div class="header-with-image">
-        <h1>XAML</h1>
-        <img src="/images/home/xaml.svg">
-      </div>
-      <p><strong>Avalonia uses a XAML dialect that should feel immediately familiar to anyone coming from WPF, UWP and Xamarin Forms.</strong>
-      <p>Avalonia supports binding, MVVM, lookless controls and data templates just as you’d expect from a XAML framework.</p>
-      <button>Find out more</button>
-    </section>
-
-    <section id="xplat" class="small gray2">
-      <div class="header-with-image">
-        <h1>Cross Platform</h1>
-        <img src="/images/home/xplat.svg">
-      </div>
-      <p><strong>We support Windows, Linux and OSX with experimental mobile support for Android and iOS.</strong>
-      <p>We currently have Win32, GTK3 and MonoMac windowing backends plus Direct2D and Skia renderers.</p>
-      <button>Find out more</button>
-    </section>
-
-    <section id="oss" class="small gray1">
-      <div class="header-with-image">
-        <h1>Open Source</h1>
-        <img src="/images/home/oss.svg">
-      </div>
-      <p><strong>Avalonia is developed by a global community of enthusiasts in our GitHub repository and in our gitter channel.</strong>
-      <p>Everything is done in the open and we’re always looking for new contributors. Drop by and say hi!</p>
-      <button>Find out more</button>
-    </section>
 
     <section>
-      <img src="/images/home/getting-started.svg" class="right">
       <h1>Getting started</h1>
       <p>Ro et enimus essincimossi ipsapernam ex ent res audaeris simet digni rerum cus et ra nonesequi
         totatus apienim quatium as idescipit eiust la cum ullam, solorrum queOccae prat ersped quias sum
         quuntem si re pre odi si natiuribus quassiti vendisinte volorest occus evenis veri non conse enecus.</p>
-      <button>Get started</button>
     </section>
 
-    <section id="support" class="purple">
-      <img src="/images/home/getting-support.svg" class="right">
+    <section id="support" class="purple-gradient">
       <h1>Getting support</h1>
       <p>Ro et enimus essincimossi ipsapernam ex ent res audaeris simet digni rerum cus et ra nonesequi
         totatus apienim quatium as idescipit eiust la cum ullam, solorrum queOccae prat ersped quias sum
         quuntem si re pre odi si natiuribus quassiti vendisinte volorest occus evenis veri non conse enecus.</p>
-        <button>Get support</button>
     </section>
 
     <section id="featured-1">
-      <img src="/images/home/clients/gritgene-ui.png" class="right">
       <h1>Featured Product</h1>
       <p>Ro et enimus essincimossi ipsapernam ex ent res audaeris simet digni rerum cus et ra nonesequi
         totatus apienim quatium as idescipit eiust la cum ullam, solorrum queOccae prat ersped quias sum
         quuntem si re pre odi si natiuribus quassiti vendisinte volorest occus evenis veri non conse enecus.</p>
-        <button>Get support</button>
-    </section>
-
-    <section id="clients" class="gray1">
-      <h1>Our clients</h1>
-      <ul class="client-logos">
-        <li><img src="/images/home/clients/gritworld-logo.png" height="48"></li>
-        <li><img src="/images/home/clients/outsystems-logo.svg" height="48"></li>
-        <li><img src="/images/home/clients/wasabi-wallet-logo.svg" height="48"></li>
-      </ul>
     </section>
   </div>
 </body>

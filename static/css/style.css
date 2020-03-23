@@ -1,63 +1,5 @@
-/* RESET */
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video {
-  margin:0;
-  padding:0;
-  border:0;
-  outline:0;
-  font-size:100%;
-  font:inherit;
-  vertical-align:baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-  display:block;
-}
-body {
-  line-height:1;
-}
-ol,ul {
-  list-style:none;
-}
-blockquote,q {
-  quotes:none;
-}
-blockquote:before,blockquote:after,
-q:before,q:after {
-  content:’’;
-  content:none;
-}
-/* remember to define visible focus styles!
-:focus{
-    outline:?????;
-} */
+/* Variables */
 
-/* remember to highlight inserts somehow! */
-ins{
-  text-decoration:none;
-}
-
-del {
-  text-decoration:line-through;
-}
-
-table {
-  border-collapse:collapse;
-  border-spacing:0;
-}
-
-/* variables */
 :root {
   --background-gray1: rgb(230, 230, 230);
   --background-gray2: rgb(242, 242, 242);
@@ -66,12 +8,18 @@ table {
   --green: rgb(0, 197, 150);
 }
 
-
-/* avaloniaui.net */
+/* Elements */
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #808080;
+  font-size: 16pt;
+  background-color: #404040;
+}
+
+.page {
+  background-color: white;
+  margin: auto;
+  max-width: 1920px;
 }
 
 h1 {
@@ -80,37 +28,102 @@ h1 {
   color: var(--bright-purple);
 }
 
-button {
-  background-color: transparent;
-  border-color: var(--green);
-  border-width: 2pt;
-  border-radius: 28px;
-  border-style: solid;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20pt;
-  padding: 10px 30px;
+/* Colors */
+
+.gray1 {
+  background: var(--background-gray1)
 }
 
-.page {
-  margin: auto;
-  max-width: 1920px;
+.gray2 {
+  background: var(--background-gray2)
 }
 
-nav.toplevel {
+.purple-gradient {
+  background: linear-gradient(90deg, var(--dark-purple), var(--bright-purple));
+  color: white;
+}
+
+.purple-gradient h1 {
+  color: white;
+}
+
+/* Images */
+
+.avalonia-logo {
+  background-image: url(/images/logo.svg);
+}
+
+.avalonia-logo.large {
+  width: 160px;
+  height: 160px;
+}
+
+.img-right {
   display: flex;
-  font-weight: lighter;
-  font-size: 16pt;
+  align-items: center;
 }
 
-nav.toplevel ul {
-  display: inline-flex;
-  width: 100%;
+.img-right img {
+  margin-left: auto;
 }
 
-nav.toplevel li {
-  display: inline;
-  margin: 24px;
-  flex: 1;
-  text-align: center;
+/* Navbar */
+
+nav {
+  display: none;
+}
+
+/* Home Page */
+
+#home section {
+  padding: 32px 90px;
+}
+
+#home #headline {
+  font-size: 20pt;
+  line-height: 1.35;
+  padding: 90px;
+}
+
+#home .avalonia-logo.large {
+  margin: -14px 0 82px 2px;
+}
+
+#home #headline h1 {
+  font-size: 52pt;
+}
+
+#home .hero-image {
+  background-image: url(/images/home/hero.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#home h1 img {
+  height: 120px;
+  vertical-align: middle;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid .hero-image {
+    height: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-grid .hero-image {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (min-width: 1440px) {
+  .subhero-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
