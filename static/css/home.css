@@ -1,0 +1,146 @@
+.page {
+  /* background-image: url(/images/x.png); */
+  background-color: white;
+  background-size: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 156px 924px 640px;
+}
+
+/* hero section */
+
+#hero-sidebar {
+ grid-column: 1 / span 1;
+ grid-row: 1  / span 2;
+ background: linear-gradient(90deg, var(--dark-purple), var(--bright-purple));
+ padding: 90px;
+ /*opacity: 50%;*/
+}
+
+#hero-sidebar {
+  color: white;
+  font-weight: medium;
+  font-size: 20pt;
+  line-height: 1.35;
+}
+
+#hero-logo {
+  background-image: url(/images/logo.svg);
+  width: 160px;
+  height: 160px;
+  margin: -14px 0 82px 2px;
+}
+
+#hero-sidebar h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 52pt;
+  margin-bottom: 48px;
+  line-height: 1;
+}
+
+#hero-buttons {
+  padding-top: 116px;
+}
+
+#hero-buttons button {
+  color: white;
+  margin: 15px;
+}
+
+#hero-nav {
+  grid-column: 2 / span 2;
+  grid-row: 1  / span 1;
+  padding-top: 70px;
+}
+
+#hero-main {
+  background-image: url(/images/home/hero.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
+}
+
+/* intro sections */
+
+section {
+  padding: 32px 90px;
+  line-height: 1.5;
+  grid-column: auto / span 3;
+}
+
+section.small {
+  grid-column: auto / span 1;
+}
+
+section strong {
+  font-weight: bold;
+}
+
+section p {
+  margin-top: 16px;
+  font-size: 16pt;
+}
+
+section img.right {
+  float: right;
+  width: 450px;
+  margin: 0 0 0 100px;
+}
+
+section.gray1 {
+  background-color: var(--background-gray1);
+}
+
+section.gray2 {
+  background-color: var(--background-gray2);
+}
+
+section.purple {
+  background: linear-gradient(90deg, var(--dark-purple), var(--bright-purple));
+  color: white;
+}
+
+section.purple h1, section.purple button{
+  color: white;
+}
+
+section img {
+  grid-column: 3/ span 1;
+}
+
+section .header-with-image {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  height: 130px;
+}
+
+section .header-with-image h1 {
+  flex-basis: 100%;
+  vertical-align: middle;
+}
+
+section .header-with-image img {
+  height: 120px;
+  flex-basis: auto;
+}
+
+section button {
+  display: block;
+  margin-top: 32px;
+}
+
+ul.client-logos {
+  display: inline-flex;
+  margin: 30px;
+  width: 100%;
+}
+
+ul.client-logos li {
+  display: inline;
+  margin: 24px;
+  flex: 1;
+  text-align: center;
+}
