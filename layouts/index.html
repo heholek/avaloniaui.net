@@ -4,8 +4,6 @@
 
 <body id="home">
   <div class="page">
-    {{ partial "navbar.html" .}}
-
     <div id="hero-container">
       <section class="title purple-gradient">
         <div class="avalonia-logo large"></div>
@@ -20,7 +18,11 @@
         </ul>
       </section>
 
-      <div class="hero-image"></div>
+      <div class="hero-image">
+        <div class="inline-nav">
+          {{ partial "navbar.html" .}}
+        </div>
+      </div>
     </div>
 
     <div id="small-section-container">

@@ -60,12 +60,28 @@
   background-position: center;
 }
 
+#home .hero-image .inline-nav {
+  display: none;
+}
+
+#home .hero-image .inline-nav a:hover {
+  /* Use this to bold the hovered item, as setting the font weight caused the layout to change
+     slightly. This property should be supported on all major browsers. */
+  -webkit-text-stroke-width: 1px;
+}
+
 /* Display hero section in 2 columns if > 1024px */
 
 @media (min-width: 1024px) {
   #hero-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
+  }
+
+  #home .hero-image .inline-nav {
+    display: block;
+    font-size: 1rem;
+    margin-top: var(--padding-large);
   }
 }
 
