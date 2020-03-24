@@ -79,7 +79,7 @@
 }
 
 #home section.small h1 img {
-  width: 120px;
+  width: 96px;
   margin-left: auto;
 }
 
@@ -93,6 +93,10 @@
   #small-section-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  #home section.small h1 img {
+    width: 120px;
   }
 }
 
