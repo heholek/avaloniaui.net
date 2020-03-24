@@ -99,6 +99,7 @@
 /* == Full-width sections == */
 
 #home section.full-width img {
+  margin-left: var(--padding-large);
   max-width: 420px;
   align-self: center;
 }
