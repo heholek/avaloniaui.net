@@ -54,20 +54,26 @@
   margin-top: 0;
 }
 
-#home .hero-image {
-  background-image: url(/images/home/hero.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+#home .hero-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#home .hero-image .inline-nav {
+#home .hero-image-container .inline-nav {
   display: none;
 }
 
-#home .hero-image .inline-nav a:hover {
+#home .hero-image-container .inline-nav a:hover {
   /* Use this to bold the hovered item, as setting the font weight caused the layout to change
      slightly. This property should be supported on all major browsers. */
   -webkit-text-stroke-width: 1px;
+}
+
+#home .hero-image-container img#down {
+  align-self: center;
+  margin-bottom: var(--padding-small);
+  width: 50px;
 }
 
 /* Display hero section in 2 columns if > 1024px */
@@ -78,7 +84,7 @@
     grid-template-columns: 1fr 2fr;
   }
 
-  #home .hero-image .inline-nav {
+  #home .hero-image-container .inline-nav {
     display: block;
     font-size: 1rem;
     margin-top: var(--padding-large);
