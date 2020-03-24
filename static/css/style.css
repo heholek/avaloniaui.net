@@ -1,3 +1,5 @@
+/* Stylesheet for site-wide styles */
+
 /* Variables */
 
 :root {
@@ -6,14 +8,22 @@
   --bright-purple: rgb(140, 69, 171);
   --dark-purple: rgb(97, 48, 120);
   --green: rgb(0, 197, 150);
+  --padding-large: 90px;
+  --padding-small: 30px;
+  --padding-xsmall: 10px;
+  --negative-padding-small: -30px;
 }
 
 /* Elements */
 
+html {
+  font-size: 14pt;
+  font-weight: 300;
+  background-color: #404040;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16pt;
-  background-color: #404040;
 }
 
 .page {
@@ -23,9 +33,25 @@ body {
 }
 
 h1 {
-  font-size: 36pt;
+  font-size: 2.25rem;
   font-weight: bold;
   color: var(--bright-purple);
+}
+
+strong {
+  font-weight: bold;
+}
+
+a.button {
+  background-color: transparent;
+  border-color: var(--green);
+  border-width: 2pt;
+  border-radius: 28px;
+  border-style: solid;
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+  padding: var(--padding-xsmall) var(--padding-small);
 }
 
 /* Colors */
@@ -71,59 +97,4 @@ h1 {
 
 nav {
   display: none;
-}
-
-/* Home Page */
-
-#home section {
-  padding: 32px 90px;
-}
-
-#home #headline {
-  font-size: 20pt;
-  line-height: 1.35;
-  padding: 90px;
-}
-
-#home .avalonia-logo.large {
-  margin: -14px 0 82px 2px;
-}
-
-#home #headline h1 {
-  font-size: 52pt;
-}
-
-#home .hero-image {
-  background-image: url(/images/home/hero.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-#home h1 img {
-  height: 120px;
-  vertical-align: middle;
-}
-
-@media (max-width: 1024px) {
-  .hero-grid .hero-image {
-    height: 240px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-grid .hero-image {
-    grid-column: 2 / span 2;
-  }
-}
-
-@media (min-width: 1440px) {
-  .subhero-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
