@@ -14,7 +14,7 @@
 #home section a.button {
   align-self: flex-start;
   justify-self: left;
-  margin-top: auto;
+  margin-top: var(--padding-small);
   font-weight: normal;
   font-size: 1.32rem;
 }
@@ -49,6 +49,10 @@
   margin: var(--padding-small) var(--padding-small) 0 0;
 }
 
+#home section.title a.button {
+  margin-top: 0;
+}
+
 #home .hero-image {
   background-image: url(/images/home/hero.svg);
   background-repeat: no-repeat;
@@ -77,6 +81,10 @@
 #home section.small h1 img {
   width: 120px;
   margin-left: auto;
+}
+
+#home section.small a.button {
+  margin-top: auto;
 }
 
 /* Display small sections in 3 columns if > 1440px */

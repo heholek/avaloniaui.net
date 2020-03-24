@@ -54,6 +54,10 @@ a.button {
   padding: var(--padding-xsmall) var(--padding-small);
 }
 
+a.button:hover {
+  background-color: var(--green);
+}
+
 /* Colors */
 
 .gray1 {
