@@ -12,6 +12,7 @@
   --padding-small: 30px;
   --padding-xsmall: 10px;
   --negative-padding-small: -30px;
+  --nav-height: 156px;
 }
 
 /* Elements */
@@ -113,13 +114,71 @@ a.button:hover {
 }
 
 /* Navbar */
-nav.toplevel ul {
+header.toplevel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin: auto;
+  max-width: 1920px;
+  height: var(--nav-height);
+  transition: background-color .3s ease;
+}
+
+header.toplevel.bg {
+  background-color: white;
+  background-image: url(/images/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: 80px center;
+}
+
+header.toplevel nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
+  align-content: center;
+}
+
+header.toplevel nav ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
+  grid-column: 2;
 }
 
-nav.toplevel a {
+.nav-item {
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-item::before {
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background: var(--green);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .3s ease;
+}
+
+.nav-item:hover::before {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+.nav-item a {
   color: inherit;
   text-decoration: none;
+}
+
+.nav-item a:hover {
+  color: var(--green);
+  /* Use this to bold the hovered item, as setting the font weight caused the layout to change
+     slightly. This property should be supported on all major browsers. */
+  -webkit-text-stroke-width: 1px;
 }
