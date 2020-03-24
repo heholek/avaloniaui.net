@@ -58,6 +58,21 @@ a.button:hover {
   background-color: var(--green);
 }
 
+/* Reduce font size and padding if width < 425px */
+
+@media (max-width: 425px) {
+  :root {
+    --padding-large: 30px;
+    --padding-small: 20px;
+    --padding-xsmall: 10px;
+    --negative-padding-small: -20px;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+}
+
 /* Colors */
 
 .gray1 {

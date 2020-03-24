@@ -30,11 +30,11 @@
 
 #home section.title h1 {
   font-size: 3.3rem;
-  margin: 0.67em 0 10px 0;
+  margin: var(--padding-small) 0 0 0;
 }
 
 #home section.title .avalonia-logo.large {
-  margin: -14px 0 30px 2px;
+  margin: -14px 0 var(--padding-small) 2px;
 }
 
 #home section.title ul.button-bar {
@@ -99,7 +99,6 @@
 /* == Full-width sections == */
 
 #home section.full-width img {
-  margin-left: var(--padding-large);
   max-width: 420px;
   align-self: center;
 }
@@ -113,6 +112,7 @@
   }
 
   #home section.full-width img {
+    margin-left: var(--padding-large);
     width: 420px;
     grid-column: 2;
     grid-row: 1 / span 3;
