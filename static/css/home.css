@@ -30,6 +30,7 @@
 
 #home section.title h1 {
   font-size: 3.3rem;
+  font-family: 'Montserrat Alternates', sans-serif;
   margin: var(--padding-small) 0 0 0;
 }
 
