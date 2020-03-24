@@ -1,13 +1,19 @@
-(function ($) {
+$(function() {
   'use strict';
+
+  var navbar = $('#navbar');
 
   // Sticky Menu
   $(window).scroll(function () {
-    var header = $('header.toplevel');
-    if (header.offset().top > 10) {
-      header.addClass('bg');
+    if (navbar.offset().top > 10) {
+      navbar.addClass('bg');
     } else {
-      header.removeClass('bg');
+      navbar.removeClass('bg');
     }
   });
-})(jQuery)
+
+  // Hamburger menu
+  $('#toplevel-menu-toggle').click(function() {
+    navbar.toggleClass('open');
+  });
+})

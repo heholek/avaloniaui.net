@@ -58,16 +58,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: var(--nav-height);
 }
 
-#home .hero-image-container .inline-nav {
-  display: none;
+#home .hero-image-container img#hero-image {
+  margin: auto;
 }
 
 #home .hero-image-container img#down {
   align-self: center;
-  margin-bottom: var(--padding-small);
+  margin: var(--padding-small) 0;
   width: 50px;
 }
 
@@ -77,6 +76,10 @@
   #hero-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
+  }
+
+  #home .hero-image-container {
+    padding-top: var(--nav-height);
   }
 }
 
