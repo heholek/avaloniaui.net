@@ -133,10 +133,10 @@
     display: block;
     background: transparent;
     border: none;
-    color: var(--green);
+    outline: none;
+    fill: var(--green);
     grid-column: 2;
     grid-row: 1;
-    font-size: 36px;
     justify-self: end;
     align-self: center;
     z-index: 1096;
