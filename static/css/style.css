@@ -12,6 +12,7 @@
   --padding-small: 30px;
   --padding-xsmall: 10px;
   --negative-padding-small: -30px;
+  --max-page-width: 1920px;
   --nav-height: 90px;
 }
 
@@ -30,7 +31,7 @@ body {
 .page {
   background-color: white;
   margin: auto;
-  max-width: 1920px;
+  max-width: var(--max-page-width);
 }
 
 h1 {
@@ -41,6 +42,10 @@ h1 {
 
 strong {
   font-weight: bold;
+}
+
+a {
+  color: inherit;
 }
 
 a.button {
@@ -112,4 +117,36 @@ a.button:hover {
 
 .img-right img {
   margin-left: auto;
+}
+
+/* Footer */
+footer {
+  padding: var(--padding-large);
+}
+
+footer ul {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+footer li {
+  height: 43px;
+  padding: 17px 0 0 80px;
+}
+
+footer li.email {
+  background-image: url(/images/email.svg);
+  background-repeat: no-repeat;
+}
+
+footer li.email a {
+  text-decoration: none;
+}
+
+footer li.address {
+  margin: var(--padding-small) 0 0 0;
+  background-image: url(/images/location.svg);
+  background-repeat: no-repeat;
 }
