@@ -90,11 +90,12 @@
 
   #toplevel-menu ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 var(--padding-large);
   }
 
   .nav-item {
-    margin: 0 15px;
+    margin: 0;
     position: relative;
   }
 

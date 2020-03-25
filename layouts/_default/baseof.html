@@ -1,0 +1,11 @@
+{{ partial "head.html" .}}
+
+<body>
+  {{ partial "navbar.html" . }}
+
+  <div class="page">
+    {{ block "main" . }}
+    {{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+</body>

@@ -21,24 +21,7 @@
 
 /* == Title/hero section == */
 
-#home section.title {
-  font-size: 1.32rem;
-  font-weight: normal;
-  line-height: 1.5;
-  padding: var(--padding-large);
-}
-
-#home section.title h1 {
-  font-size: 3.3rem;
-  font-family: 'Montserrat Alternates', sans-serif;
-  margin: var(--padding-small) 0 0 0;
-}
-
-#home section.title .avalonia-logo.large {
-  margin: -14px 0 var(--padding-small) 2px;
-}
-
-#home section.title ul.button-bar {
+#home section.sidebar ul.button-bar {
   list-style: none;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -46,41 +29,22 @@
   padding: 0;
 }
 
-#home section.title ul.button-bar li {
+#home section.sidebar ul.button-bar li {
   margin: var(--padding-small) var(--padding-small) 0 0;
 }
 
-#home section.title a.button {
+#home section.sidebar a.button {
   margin-top: 0;
 }
 
-#home .hero-image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#home .hero-image-container img#hero-image {
+#home .hero-content img#hero-image {
   margin: auto;
 }
 
-#home .hero-image-container img#down {
+#home .hero-content img#down {
   align-self: center;
   margin: var(--padding-small) 0;
   width: 50px;
-}
-
-/* Display hero section in 2 columns if > 1024px */
-
-@media (min-width: 1024px) {
-  #hero-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-
-  #home .hero-image-container {
-    padding-top: var(--nav-height);
-  }
 }
 
 /* == 3 small sections (XAML, Cross platform, Open source) == */
