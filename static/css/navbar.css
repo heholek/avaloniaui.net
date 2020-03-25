@@ -17,12 +17,13 @@
 
 #toplevel-menu ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 
 .nav-item::before {
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -10px;
   height: 3px;
   width: 100%;
   content: "";
@@ -107,6 +108,7 @@
 @media (max-width: 1400px) {
   #navbar {
     grid-template-columns: 1fr auto;
+    padding: var(--padding-xsmall);
   }
 
   #navbar.bg {
@@ -118,8 +120,8 @@
   }
 
   #navbar .avalonia-logo {
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
     margin: 10px;
   }
 
@@ -136,12 +138,15 @@
     grid-row: 1;
     font-size: 36px;
     justify-self: end;
-    margin: 30px;
+    align-self: center;
     z-index: 1096;
   }
 
   #toplevel-menu {
     display: none;
+    grid-column: 1 / span 2;
+    /* Subtract padding-xsmall that is applied to #navbar */
+    padding: 0 calc(var(--padding-large) - var(--padding-xsmall));
   }
 
   #navbar.open #toplevel-menu {
@@ -151,7 +156,8 @@
   .nav-item {
     color: white;
     position: relative;
-    font-size: 3rem;
-    margin: var(--padding-small);
+    font-size: 2rem;
+    margin: var(--padding-small) 0;
   }
 }
+
