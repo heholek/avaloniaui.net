@@ -16,4 +16,12 @@ $(function() {
   $('#toplevel-menu-toggle').click(function() {
     navbar.toggleClass('open');
   });
+
+  $('body').click(function() {
+    navbar.removeClass('open');
+  });
+
+  navbar.click(function (e) {
+    e.stopPropagation();
+  });
 })
