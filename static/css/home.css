@@ -1,52 +1,5 @@
 /* Stylesheet for /index.html homepage */
 
-#home section {
-  display: flex;
-  padding: var(--padding-large);
-  flex-direction: column;
-  line-height: 1.3;
-}
-
-#home section h1 {
-  margin: 0;
-}
-
-#home section a.button {
-  align-self: flex-start;
-  justify-self: left;
-  margin-top: var(--padding-small);
-  font-weight: normal;
-  font-size: 1.32rem;
-}
-
-/* == Title/hero section == */
-
-#home section.sidebar ul.button-bar {
-  list-style: none;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-top: var(--padding-small);
-  padding: 0;
-}
-
-#home section.sidebar ul.button-bar li {
-  margin: var(--padding-small) var(--padding-small) 0 0;
-}
-
-#home section.sidebar a.button {
-  margin-top: 0;
-}
-
-#home .hero-content img#hero-image {
-  margin: auto;
-}
-
-#home .hero-content img#down {
-  align-self: center;
-  margin: var(--padding-small) 0;
-  width: 50px;
-}
-
 /* == 3 small sections (XAML, Cross platform, Open source) == */
 
 #home section.small h1 {
