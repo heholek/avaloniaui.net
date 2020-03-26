@@ -5,6 +5,11 @@ Category: Internals
 Author: Steven Kirk
 ---
 
+:::note
+This article refers to a historical version of Avalonia and as such may not be up-to-date.
+:::
+
+
 In the [second post of the series](/blog/2015-07-08-avalonia-binding-priorities-part-2)
 I described how binding priorites in [Avalonia](https://github.com/grokys/Avalonia/)
 were fixed in the light of problems with local values. However, a problem still

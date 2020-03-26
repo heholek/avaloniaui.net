@@ -5,6 +5,11 @@ Category: Internals
 Author: Steven Kirk
 ---
 
+:::note
+This article refers to a historical version of Avalonia and as such may not be up-to-date.
+:::
+
+
 In my previous blog post I said that we'd cover binding priorities, so here we go. In WPF there is something called [Dependency Property Value Precedence][a9fd6f3f] but it's mostly hidden behind the scenes. However, Avalonia has a CSS-style styling system which means that the priorites (or precedence) of bindings become even more important.
 
 To illustrate, lets consider this simple Button template:

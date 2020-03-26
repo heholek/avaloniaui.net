@@ -1,4 +1,4 @@
-﻿@* Layout for pages without a hero section, such as blogs and documentation *@
+﻿@* Layout for pages with a hero section, such as index and support *@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="~/css/images.css">
   <link rel="stylesheet" href="~/css/navbar.css">
   <link rel="stylesheet" href="~/css/sidebar.css">
+  <link rel="stylesheet" href="~/css/hero.css">
   <link rel="stylesheet" href="~/css/content.css">
   <link rel="stylesheet" href="~/css/footer.css">
   <link rel="stylesheet" href="~/lib/highlight.js/styles/vs2015.min.css">
@@ -28,19 +29,22 @@
 </head>
 
 <body>
-  <partial name="_Navbar.cshtml"/>
+  <partial name="_Navbar.cshtml" />
 
   <div class="page">
-    <div class="sidebar-container">
-      <div class="sidebar gray-gradient">
+    <div class="hero-container">
+      <div class="sidebar @(ViewData["SidebarBackground"] ?? "gray-gradient")">
         <a class="avalonia-logo large" href="/">Homepage</a>
         @RenderSection("Sidebar")
       </div>
-      <div class="content">
-        @RenderBody()
+      <div class="hero-content">
+        @RenderSection("HeroContent")
       </div>
     </div>
-    <partial name="_Footer.cshtml"/>
+    <div class="content">
+      @RenderBody()
+    </div>
+    <partial name="_Footer.cshtml" />
   </div>
 </body>
 </html>

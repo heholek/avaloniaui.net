@@ -5,6 +5,8 @@
   --bright-purple: rgb(140, 69, 171);
   --dark-purple: rgb(97, 48, 120);
   --green: rgb(0, 197, 150);
+  --note-bg: rgba(255, 229, 100, 0.3);
+  --note-border: rgba(255, 229, 100, 0.3);
   --padding-large: 90px;
   --padding-small: 30px;
   --padding-xsmall: 10px;

@@ -5,6 +5,11 @@ Category: Internals
 Author: Steven Kirk
 ---
 
+:::note
+This article refers to a historical version of Avalonia and as such may not be up-to-date.
+:::
+
+
 In this post I'm going to explore [Avalonia](https://github.com/grokys/Avalonia/)'s version of the
 XAML frameworks' `DependencyProperty` - `AvaloniaProperty`.
 

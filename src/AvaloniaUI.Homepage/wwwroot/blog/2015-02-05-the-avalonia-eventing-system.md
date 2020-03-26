@@ -5,6 +5,10 @@ Category: Internals
 Author: Steven Kirk
 ---
 
+:::note
+This article refers to a historical version of Avalonia and as such may not be up-to-date.
+:::
+
 Just about to land on master is an update to the Avalonia eventing system. Avalonia generally follows
 WPF quite closely in its eventing, using a routed event model, but this update marks a few
 deviations away from that of WPF.

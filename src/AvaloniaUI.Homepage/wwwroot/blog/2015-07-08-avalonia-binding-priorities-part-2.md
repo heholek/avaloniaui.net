@@ -5,6 +5,11 @@ Category: Internals
 Author: Steven Kirk
 ---
 
+:::note
+This article refers to a historical version of Avalonia and as such may not be up-to-date.
+:::
+
+
 In the [last post](/blog/2015-05-08-avalonia-binding-priorities) I described the
 first attempt at binding priorites in [Avalonia](https://github.com/grokys/Avalonia/).
 

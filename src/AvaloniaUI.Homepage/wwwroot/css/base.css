@@ -49,6 +49,19 @@ a {
       background-color: var(--green);
     }
 
+code {
+  background-color: var(--gray2);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
+  font-weight: normal;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
+pre code {
+  font-size: 0.8rem;
+}
+
 /* Reduce font size if width < 425px */
 
 @media (max-width: 425px) {
