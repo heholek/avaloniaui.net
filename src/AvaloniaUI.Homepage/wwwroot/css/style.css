@@ -1,0 +1,342 @@
+/* Stylesheet for site-wide styles */
+
+/* Variables */
+
+:root {
+  --gray1: rgb(230, 230, 230);
+  --gray2: rgb(242, 242, 242);
+  --gray3: rgb(179, 179, 179);
+  --bright-purple: rgb(140, 69, 171);
+  --dark-purple: rgb(97, 48, 120);
+  --green: rgb(0, 197, 150);
+  --padding-large: 90px;
+  --padding-small: 30px;
+  --padding-xsmall: 10px;
+  --negative-padding-small: -30px;
+  --max-page-width: 1920px;
+  --nav-height: 90px;
+}
+
+/* Elements */
+
+html {
+  font-size: 14pt;
+  font-weight: 300;
+  line-height: 1.3;
+  background-color: #404040;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page {
+  background-color: white;
+  margin: auto;
+  max-width: var(--max-page-width);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--bright-purple);
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  color: inherit;
+}
+
+a.button {
+  align-self: flex-start;
+  background-color: transparent;
+  border-color: var(--green);
+  border-width: 2pt;
+  border-radius: 28px;
+  border-style: solid;
+  color: inherit;
+  display: inline-block;
+  font-size: 1.32rem;
+  font-weight: normal;
+  justify-self: left;
+  padding: var(--padding-xsmall) var(--padding-small);
+  text-decoration: none;
+}
+
+a.button:hover {
+  background-color: var(--green);
+}
+
+/* Reduce font size and padding if width < 425px */
+
+@media (max-width: 425px) {
+  :root {
+    --padding-large: 30px;
+    --padding-small: 20px;
+    --padding-xsmall: 10px;
+    --negative-padding-small: -20px;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+}
+
+/* Colors */
+
+.bg-gray1 {
+  background: var(--gray1)
+}
+
+.bg-gray2 {
+  background: var(--gray2)
+}
+
+.white {
+  color: white;
+}
+
+.purple-gradient {
+  background: linear-gradient(90deg, var(--dark-purple), var(--bright-purple));
+  color: white;
+}
+
+.purple-gradient h1 {
+  color: white;
+}
+
+.gray-gradient {
+  background: linear-gradient(45deg, white, var(--gray3));
+}
+
+/* Images */
+
+.avalonia-logo {
+  display: inline-block;
+  background-image: url(/images/logo.svg);
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.avalonia-logo.large {
+  width: 160px;
+  height: 160px;
+}
+
+/* Layout */
+
+.flex-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+ul.button-bar {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-top: var(--padding-large);
+  padding: 0;
+}
+
+ul.button-bar li {
+  margin: var(--padding-small) var(--padding-small) 0 0;
+}
+
+h1.with-img {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-auto-flow: row;
+  align-items: center;
+  margin-top: var(--negative-padding-small);
+  margin-bottom: 0;
+}
+
+h1.with-img img {
+  width: 96px;
+  margin-left: auto;
+}
+
+.dock-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+}
+
+.dock-grid .dock-center {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.dock-grid .dock-top {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dock-grid .dock-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dock-grid .dock-bottom {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.dock-grid .dock-left {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.with-img-right-responsive {
+  display: flex;
+  padding: var(--padding-large);
+  flex-direction: column;
+}
+
+.with-img-right-responsive img {
+  align-self: center;
+  max-width: 420px;
+}
+
+@media (min-width: 1024px) {
+  h1.with-img img {
+    width: 120px;
+  }
+
+  .with-img-right-responsive {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .with-img-right-responsive img {
+    grid-column: 2;
+    grid-row: 1 / span 100;
+    margin-left: var(--padding-large);
+    width: 420px;
+  }
+
+  .with-img-right-responsive a.button {
+    margin-top: var(--padding-small);
+  }
+}
+
+/* Hero section */
+
+.sidebar {
+  font-size: 1.32rem;
+  font-weight: normal;
+  line-height: 1.5;
+  padding: var(--padding-large);
+}
+
+.sidebar h1 {
+  font-size: 3.3rem;
+  font-family: 'Montserrat Alternates', sans-serif;
+  line-height: 1;
+  margin: 0.75em 0;
+}
+
+.sidebar .avalonia-logo.large {
+  margin: -14px 0 var(--padding-small) 2px;
+}
+
+.hero-content {
+  background-image: url(/images/down-chevron.svg);
+  background-position: bottom calc(var(--padding-large) / 3) center;
+  background-repeat: no-repeat;
+  background-size: auto calc(var(--padding-large) / 3);
+  padding: var(--padding-large);
+}
+
+.hero-content .center {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+}
+
+.hero-content .two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
+
+.hero-content .two-column > * {
+  padding: var(--padding-large);
+}
+
+/* Display hero section in 2 columns if > 1024px */
+
+@media (min-width: 1024px) {
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .hero-content {
+    padding-top: var(--nav-height);
+  }
+}
+
+
+/* Content sections */
+
+.content section {
+  padding: var(--padding-large);
+}
+
+.content section h1:not(.with-img) {
+  margin-top: 0;
+}
+
+.content .threee-columns section a.button {
+  align-self: flex-start;
+  margin-top: var(--padding-small);
+  font-size: 1.32rem;
+}
+
+/* 3 column section if > 1440px */
+
+@media (min-width: 1440px) {
+  .three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Footer */
+footer {
+  padding: var(--padding-large);
+}
+
+footer ul {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+footer li {
+  height: 43px;
+  padding: 17px 0 0 80px;
+}
+
+footer li.email {
+  background-image: url(/images/email.svg);
+  background-repeat: no-repeat;
+}
+
+footer li.email a {
+  text-decoration: none;
+}
+
+footer li.address {
+  margin: var(--padding-small) 0 0 0;
+  background-image: url(/images/location.svg);
+  background-repeat: no-repeat;
+}
