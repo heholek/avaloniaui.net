@@ -25,7 +25,7 @@
 
   <div class="page">
     <div class="hero-container">
-      <div class="sidebar @ViewData["SidebarBackground"]">
+      <div class="sidebar @(ViewData["SidebarBackground"] ?? "gray-gradient")">
         <a class="avalonia-logo large" href="/">Homepage</a>
         @RenderSection("Sidebar")
       </div>
