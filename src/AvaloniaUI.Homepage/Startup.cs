@@ -26,7 +26,8 @@ namespace AvaloniaUI.Homepage
                 config.AddMarkdownProcessingFolder("/blog/", "~/Pages/Shared/_BlogPost.cshtml");
             });
 
-            services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,7 @@ namespace AvaloniaUI.Homepage
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
+            app.UseMvcWithDefaultRoute();
 
             app.UseEndpoints(endpoints =>
             {

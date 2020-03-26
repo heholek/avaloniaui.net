@@ -1,4 +1,8 @@
 @page
+@model AvaloniaUI.Homepage.Pages.Blog.IndexModel
+
+@using Westwind.AspNetCore.Markdown;
+
 @{
   ViewData["Title"] = "Avalonia Blog";
 }
@@ -7,20 +11,16 @@
   <h1><span class="white">avalonia</span> blog</h1>
 }
 
-<section>
-  <h1>Hello World!</h1>
-  <p>
-    Ro et enimus essincimossi ipsapernam ex ent res audaeris simet digni rerum cus et ra nonesequi
-    totatus apienim quatium as idescipit eiust la cum ullam, solorrum queOccae prat ersped quias sum
-    quuntem si re pre odi si natiuribus quassiti vendisinte volorest occus evenis veri non conse enecus.
-  </p>
-</section>
+<div class="navbar-spacer"></div>
 
-<section class="purple-gradient">
-  <h1>Hello World!</h1>
-  <p>
-    Ro et enimus essincimossi ipsapernam ex ent res audaeris simet digni rerum cus et ra nonesequi
-    totatus apienim quatium as idescipit eiust la cum ullam, solorrum queOccae prat ersped quias sum
-    quuntem si re pre odi si natiuribus quassiti vendisinte volorest occus evenis veri non conse enecus.
-  </p>
-</section>
+@if (Model.Posts is object)
+{
+  foreach (var post in Model.Posts)
+  {
+    <section class="blog-post-summary">
+      <a href="@Url.Content(@post.Url)"><h1 class="post-title">@post.Title</h1></a>
+      <div class="meta"><time>@post.Date.ToString("yyyy-MM-dd") </time></div>
+      <p>@Markdown.ParseHtmlString(post.Excerpt, sanitizeHtml: true)</p>
+    </section>
+  }
+}

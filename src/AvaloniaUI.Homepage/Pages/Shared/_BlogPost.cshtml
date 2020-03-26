@@ -1,13 +1,10 @@
 @model Westwind.AspNetCore.Markdown.MarkdownModel
-@{
-  ViewBag.Title = Model.Title;
-}
 
 @section Sidebar {
-  <h1>avalonia</h1>
+  <h1><span class="white">avalonia</span> blog</h1>
 }
 
-<h1>@ViewBag.Title</h1>
-
-@Model.RenderedMarkdown
-
+<article class="blog-post">
+  <h1>@Model.Title</h1>
+  @Model.RenderedMarkdown
+</article>

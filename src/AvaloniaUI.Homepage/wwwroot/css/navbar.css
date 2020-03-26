@@ -102,6 +102,10 @@
   #toplevel-menu-toggle {
     display: none;
   }
+
+  div.navbar-spacer {
+    height: var(--nav-height);
+  }
 }
 
 /* Hamburger menu */
