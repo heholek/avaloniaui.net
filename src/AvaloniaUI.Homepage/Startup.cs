@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Westwind.AspNetCore.Markdown;
 
 namespace AvaloniaUI.Homepage
 {
@@ -19,6 +20,13 @@ namespace AvaloniaUI.Homepage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            services.AddMarkdown(config =>
+            {
+                config.AddMarkdownProcessingFolder("/blog/", "~/Pages/Shared/_BlogPost.cshtml");
+            });
+
+            services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,16 +44,16 @@ namespace AvaloniaUI.Homepage
                 app.UseHsts();
             }
 
+            app.UseMarkdown();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
