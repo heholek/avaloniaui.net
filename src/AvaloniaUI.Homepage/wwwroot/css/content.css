@@ -1,0 +1,22 @@
+.content section {
+  padding: var(--padding-large);
+}
+
+  .content section h1:not(.with-img) {
+    margin-top: 0;
+  }
+
+.content .threee-columns section a.button {
+  align-self: flex-start;
+  margin-top: var(--padding-small);
+  font-size: 1.32rem;
+}
+
+/* 3 column section if > 1440px */
+
+@media (min-width: 1440px) {
+  .three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,57 @@
+.sidebar {
+  font-size: 1.32rem;
+  font-weight: normal;
+  line-height: 1.5;
+  padding: var(--padding-large);
+}
+
+  .sidebar h1 {
+    font-size: 3.3rem;
+    font-family: 'Montserrat Alternates', sans-serif;
+    line-height: 1;
+    margin: 0.75em 0;
+  }
+
+  .sidebar .avalonia-logo.large {
+    margin: -14px 0 var(--padding-small) 2px;
+  }
+
+.hero-content {
+  background-image: url(/images/down-chevron.svg);
+  background-position: bottom calc(var(--padding-large) / 3) center;
+  background-repeat: no-repeat;
+  background-size: auto calc(var(--padding-large) / 3);
+  padding: var(--padding-large);
+}
+
+  .hero-content .center {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+  }
+
+  .hero-content .two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    height: 100%;
+  }
+
+    .hero-content .two-column > * {
+      padding: var(--padding-large);
+    }
+
+/* Display hero section in 2 columns if > 1024px */
+
+@media (min-width: 1024px) {
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .hero-content {
+    padding-top: var(--nav-height);
+  }
+}
