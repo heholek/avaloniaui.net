@@ -9,6 +9,12 @@ using Markdig.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Westwind.AspNetCore.Markdown;
+using YamlDotNet.Core;
+using YamlDotNet.Core.Events;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
+using YamlDotNet.Serialization.NodeDeserializers;
+using YamlDotNet.Serialization.Utilities;
 
 namespace AvaloniaUI.Homepage.Pages.Blog
 {
@@ -25,11 +31,11 @@ namespace AvaloniaUI.Homepage.Pages.Blog
             _markdownConfig = markdownConfig;
         }
 
-        public IReadOnlyList<BlogPostSummary>? Posts { get; private set; }
+        public IReadOnlyList<BlogPost>? Posts { get; private set; }
 
         public async Task OnGet()
         {
-            var result = new List<BlogPostSummary>();
+            var result = new List<BlogPost>();
 
             foreach (var folder in _markdownConfig.MarkdownProcessingFolders)
             {
@@ -50,14 +56,14 @@ namespace AvaloniaUI.Homepage.Pages.Blog
                 }
             }
 
-            Posts = result.OrderByDescending(x => x.Date).ToList();
+            Posts = result.OrderByDescending(x => x.FrontMatter!.Published).ToList();
         }
 
-        private async Task<BlogPostSummary?> ParseMarkdown(string path)
+        private async Task<BlogPost?> ParseMarkdown(string path)
         {
             using var s = new FileStream(path, FileMode.Open);
             using var r = new StreamReader(s);
-            var result = new BlogPostSummary();
+            var result = new BlogPost();
             var line = await r.ReadLineAsync();
 
             if (line is null)
@@ -67,11 +73,11 @@ namespace AvaloniaUI.Homepage.Pages.Blog
 
             if (line.StartsWith("---"))
             {
-                if (!await ParseFrontMatter(r, result))
-                {
-                    return null;
-                }
+                result.FrontMatter = ParseFrontPatter(r);
             }
+
+            result.Title = result.FrontMatter?.Title;
+            result.Date = result.FrontMatter?.Published ?? System.IO.File.GetCreationTimeUtc(path);
 
             line = await r.ReadLineAsync();
 
@@ -81,9 +87,9 @@ namespace AvaloniaUI.Homepage.Pages.Blog
             {
                 if (line.StartsWith("#"))
                 {
-                    if (result.Title is null && line.StartsWith("# ", StringComparison.InvariantCulture))
+                    if (result.Title is null)
                     {
-                        result.Title = line.Substring(2);
+                        result.Title = line.TrimStart('#').Trim();
                     }
                 }
                 else if (!string.IsNullOrWhiteSpace(line) &&
@@ -101,37 +107,27 @@ namespace AvaloniaUI.Homepage.Pages.Blog
             if (excerpt.Length > 0)
             {
                 excerpt.Append("...");
-                result.Excerpt = excerpt.ToString();
+                result.Markdown = excerpt.ToString();
             }
 
             return result;
         }
 
-        private async Task<bool> ParseFrontMatter(StreamReader r, BlogPostSummary result)
+        private BlogPostFrontMatter? ParseFrontPatter(StreamReader r)
         {
-            var line = await r.ReadLineAsync();
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(PascalCaseNamingConvention.Instance)
+                .BuildValueDeserializer();
+            var parser = new Parser(r);
 
-            while (true)
-            {
-                if (line == null)
-                {
-                    return false;
-                }
-                else if (line.StartsWith("---", StringComparison.Ordinal))
-                {
-                    return true;
-                }
-                else if (line.StartsWith("title: ", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    result.Title = line.Substring(7);
-                }
-                else if (line.StartsWith("published: ", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    result.Date = DateTimeOffset.Parse(line.Substring(11));
-                }
+            parser.Consume<StreamStart>();
+            parser.Consume<DocumentStart>();
 
-                line = await r.ReadLineAsync();
-            }
+            return (BlogPostFrontMatter?)deserializer.DeserializeValue(
+                parser,
+                typeof(BlogPostFrontMatter),
+                new SerializerState(),
+                deserializer);
         }
     }
 }

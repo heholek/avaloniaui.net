@@ -6,14 +6,25 @@
     margin-top: 0;
   }
 
-  .content section.blog-post-summary {
-    padding: var(--padding-xsmall) var(--padding-large);
-  }
-
 .content .threee-columns section a.button {
   align-self: flex-start;
   margin-top: var(--padding-small);
   font-size: 1.32rem;
+}
+
+.blog-post dl {
+  display: flex;
+  opacity: 0.5;
+  margin-top: 0.5em;
+}
+
+.blog-post dd {
+  margin-left: 0;
+  margin-right: 1em;
+}
+
+section.blog-post.summary {
+  padding: var(--padding-xsmall) var(--padding-large);
 }
 
 article {

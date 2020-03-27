@@ -66,6 +66,28 @@ img {
   max-width: 100%;
 }
 
+dt.icon {
+  display: none;
+}
+
+dd.icon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  opacity: 0.5;
+}
+
+dd.icon.date::before {
+  content: "\f073\00a0\00a0";
+}
+
+dd.icon.person::before {
+  content: "\f007\00a0\00a0";
+}
+
+dd.icon.category::before {
+  content: '\f02e\00a0\00a0';
+}
+
 /* Reduce font size if width < 425px */
 
 @media (max-width: 425px) {

@@ -17,10 +17,29 @@
 {
   foreach (var post in Model.Posts)
   {
-    <section class="blog-post-summary">
+    <section class="blog-post summary">
       <a href="@Url.Content(@post.Url)"><h1 class="post-title">@post.Title</h1></a>
-      <div class="meta"><time>@post.Date.ToString("yyyy-MM-dd") </time></div>
-      <p>@Markdown.ParseHtmlString(post.Excerpt, sanitizeHtml: true)</p>
+      <dl>
+        <dt class="icon">Published</dt>
+        <dd class="icon date">@post.Date.ToString("yyyy-MM-dd")</dd>
+
+        @if (post.FrontMatter?.Author is object)
+        {
+          <dt class="icon">Author</dt>
+          <dd class="icon person">@post.FrontMatter.Author</dd>
+        }
+
+        @if (post.FrontMatter?.Categories is object)
+        {
+          <dt class="icon">Category</dt>
+          foreach (var category in post.FrontMatter.Categories)
+          {
+            <dd class="icon category">@category</dd>
+          }
+        }
+
+      </dl>
+      <p>@Markdown.ParseHtmlString(post.Markdown, sanitizeHtml: true)</p>
     </section>
   }
 }
