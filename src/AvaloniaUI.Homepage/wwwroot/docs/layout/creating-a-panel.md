@@ -1,3 +1,4 @@
+---
 Title: Create a Custom Panel
 Order: 30
 ---

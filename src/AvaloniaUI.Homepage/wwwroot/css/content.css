@@ -1,3 +1,11 @@
+.content {
+  /*
+    IMPORTANT! Without this <pre> tages overflow. See https://css-tricks.com/preventing-a-grid-blowout/
+    for more info
+  */
+  min-width: 0;
+}
+
 .content section {
   padding: var(--padding-large);
 }

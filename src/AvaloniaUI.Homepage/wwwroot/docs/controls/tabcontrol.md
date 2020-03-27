@@ -1,3 +1,4 @@
+---
 Title: TabControl
 ---
 The `TabControl` allows us to switch between different pages by means of tabs like the tabs in web navigators or the ribbon menu (which uses tabs) in Word Office for instance.

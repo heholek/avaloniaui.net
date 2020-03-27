@@ -1,3 +1,4 @@
+---
 Title: Border
 ---
 The `Border` control decorates a child with a border and background. It can also be used to

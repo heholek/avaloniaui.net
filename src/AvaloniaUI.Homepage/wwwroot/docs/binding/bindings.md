@@ -1,3 +1,4 @@
+---
 Title: Bindings
 Order: 10
 ---

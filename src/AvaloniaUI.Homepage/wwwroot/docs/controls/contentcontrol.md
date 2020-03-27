@@ -1,3 +1,4 @@
+---
 Title: ContentControl
 ---
 The [`ContentControl`](/api/Avalonia.Controls/ContentControl) displays data according to a

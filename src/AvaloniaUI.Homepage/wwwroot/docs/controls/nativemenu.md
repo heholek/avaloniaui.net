@@ -1,3 +1,4 @@
+---
 Title: NativeMenu
 ---
 Displays a native menu on OSX.

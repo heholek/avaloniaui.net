@@ -1,3 +1,4 @@
+---
 Title: Types of Control
 Order: 0
 ---

@@ -1,5 +1,8 @@
-@page
+@page "/docs/{*url}"
 
+@using Westwind.AspNetCore.Markdown;
+
+@model AvaloniaUI.Homepage.Pages.Docs.IndexModel
 @{
   ViewData["Title"] = "Avalonia Docs";
 }
@@ -8,4 +11,7 @@
   <h1><span class="white">avalonia</span> docs</h1>
 }
 
-<div class="navbar-spacer"></div>
+<article class="docs">
+  <h1>@Model.Article.Title</h1>
+  @Markdown.ParseHtmlString(Model.Article.Markdown, sanitizeHtml: true)
+</article>

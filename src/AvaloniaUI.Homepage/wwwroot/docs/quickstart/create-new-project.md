@@ -1,3 +1,4 @@
+---
 Title: Creating a new Avalonia Project
 Order: 0
 ---

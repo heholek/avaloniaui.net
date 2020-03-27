@@ -1,3 +1,4 @@
+---
 Title: Data Templates
 Order: 0
 ---

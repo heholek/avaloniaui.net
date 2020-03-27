@@ -1,3 +1,4 @@
+---
 Title: Creating Data Templates in Code
 Order: 10
 ---

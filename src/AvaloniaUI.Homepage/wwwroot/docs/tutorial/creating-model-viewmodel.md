@@ -1,3 +1,4 @@
+---
 Title: Creating a Model and ViewModel
 Order: 30
 ---

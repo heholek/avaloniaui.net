@@ -1,3 +1,4 @@
+---
 Title: Wiring up the Views
 Order: 40
 ---

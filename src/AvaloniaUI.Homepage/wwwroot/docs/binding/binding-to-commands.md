@@ -1,3 +1,4 @@
+---
 Title: Binding to Commands
 Order: 35
 ---

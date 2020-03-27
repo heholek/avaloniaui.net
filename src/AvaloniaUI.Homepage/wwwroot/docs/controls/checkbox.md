@@ -1,3 +1,4 @@
+---
 Title: CheckBox
 ---
 The `CheckBox` control is a [`ContentControl`](contentcontrol) which allows user to check an option. It is usually used to display a boolean option where selection is either *checked* or *unchecked*. But it also supports three state mode where selection is either *checked*, *indeterminate* or *unchecked*.

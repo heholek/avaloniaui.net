@@ -1,3 +1,4 @@
+---
 Title: Menu
 ---
 The `Menu` control adds a top-level menu to an application. A `Menu` is usually placed in a

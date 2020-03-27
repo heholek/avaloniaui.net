@@ -1,3 +1,4 @@
+---
 Title: Animations
 Order: 40
 ---

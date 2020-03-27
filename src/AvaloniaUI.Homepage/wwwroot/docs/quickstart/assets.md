@@ -1,3 +1,4 @@
+---
 Title: Assets
 Order: 50
 ---

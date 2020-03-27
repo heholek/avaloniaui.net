@@ -1,3 +1,4 @@
+---
 Title: Binding to Controls
 Order: 20
 ---

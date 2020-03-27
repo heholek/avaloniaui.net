@@ -56,6 +56,10 @@ code {
   font-weight: normal;
   padding: 0 6px;
   border-radius: 4px;
+  word-break: break-word;
+}
+
+pre {
 }
 
 pre code {

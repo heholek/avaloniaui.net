@@ -1,3 +1,4 @@
+---
 Title: ProgressBar
 ---
 The `ProgressBar` control allow for showing dynamic progress status.

@@ -1,3 +1,4 @@
+---
 Title: TabStrip
 ---
 Displays a strip of selectable tabs.

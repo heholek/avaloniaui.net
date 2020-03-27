@@ -1,3 +1,4 @@
+---
 Title: Logging Errors and Warnings
 Order: 1000
 ---

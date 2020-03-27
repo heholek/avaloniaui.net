@@ -1,3 +1,4 @@
+---
 Title: Binding in a Control Template
 Order: 50
 ---

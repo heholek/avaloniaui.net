@@ -1,3 +1,4 @@
+---
 Title: Button
 ---
 The `Button` control is a [`ContentControl`](contentcontrol) which reacts to pointer presses.

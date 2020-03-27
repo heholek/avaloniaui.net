@@ -1,3 +1,4 @@
+---
 Title: Binding from Code
 Order: 50
 ---
