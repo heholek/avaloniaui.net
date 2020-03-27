@@ -1,5 +1,4 @@
+---
 Title: Authoring Controls
 Order: 60
 ---
-
-@Html.Partial("_ChildPages")

@@ -9,11 +9,11 @@ using YamlDotNet.Serialization.Utilities;
 
 namespace AvaloniaUI.Homepage.Services
 {
-    public class MarkdownDocumentLoader<TDocument, TFrontMatter>
-        where TDocument : class, IMarkdownDocument, new()
-        where TFrontMatter : class, IMarkdownFrontMatter, new()
+    public class MarkdownDocumentLoader
     {
-        public async Task<TDocument?> LoadAsync(string path)
+        public async Task<TDocument?> LoadAsync<TDocument, TFrontMatter>(string path)
+            where TDocument : class, IMarkdownDocument, new()
+            where TFrontMatter : class, IMarkdownFrontMatter, new()
         {
             using var s = new FileStream(path, FileMode.Open);
             using var r = new StreamReader(s);
@@ -27,7 +27,7 @@ namespace AvaloniaUI.Homepage.Services
 
             if (line.StartsWith("---"))
             {
-                result.FrontMatter = ParseFrontMatter(r);
+                result.FrontMatter = ParseFrontMatter<TFrontMatter>(r);
             }
 
             result.Markdown = await r.ReadToEndAsync();
@@ -35,7 +35,16 @@ namespace AvaloniaUI.Homepage.Services
 
         }
 
-        private TFrontMatter? ParseFrontMatter(StreamReader r)
+        public TFrontMatter? LoadFrontMatter<TFrontMatter>(string path)
+            where TFrontMatter : class, IMarkdownFrontMatter, new()
+        {
+            using var s = new FileStream(path, FileMode.Open);
+            using var r = new StreamReader(s);
+            return ParseFrontMatter<TFrontMatter>(r);
+        }
+
+        private TFrontMatter? ParseFrontMatter<TFrontMatter>(StreamReader r)
+            where TFrontMatter : class, IMarkdownFrontMatter, new()
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(PascalCaseNamingConvention.Instance)

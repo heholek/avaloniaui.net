@@ -1,17 +1,45 @@
 @page "/docs/{*url}"
 
 @using Westwind.AspNetCore.Markdown;
+@using AvaloniaUI.Homepage.Models
 
 @model AvaloniaUI.Homepage.Pages.Docs.IndexModel
 @{
   ViewData["Title"] = "Avalonia Docs";
 }
 
+@{
+  void RenderIndex(IEnumerable<DocsIndexItem> index)
+  {
+    foreach (var item in index)
+    {
+      <li>@item.Title</li>
+
+      if (item.Children?.Count > 0)
+      {
+        <ul>
+          @{ RenderIndex(item.Children); }
+        </ul>
+      }
+    }
+  }
+}
+
 @section Sidebar {
   <h1><span class="white">avalonia</span> docs</h1>
+
+  @if (Model.Index is object)
+  {
+    <ul class="docs-index">
+      @{RenderIndex(Model.Index);}
+    </ul>
+  }
 }
 
 <article class="docs">
-  <h1>@Model.Article.Title</h1>
-  @Markdown.ParseHtmlString(Model.Article.Markdown, sanitizeHtml: true)
+  @if (Model.Article is object)
+  {
+    <h1>@Model.Article.Title</h1>
+    @Markdown.ParseHtmlString(Model.Article.Markdown, sanitizeHtml: true)
+  }
 </article>

@@ -69,6 +69,10 @@ div.meta {
   font-style: italic;
 }
 
+.docs-index {
+  font-size: 1rem;
+}
+
 /* Display sidebar as a column if > 1024px */
 @media (min-width: 1024px) {
   .sidebar-container {
