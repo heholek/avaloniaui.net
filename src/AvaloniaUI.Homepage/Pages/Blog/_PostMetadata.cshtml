@@ -1,0 +1,21 @@
+@model AvaloniaUI.Homepage.Models.BlogPost
+
+<dl>
+  <dt class="icon">Published</dt>
+  <dd class="icon date">@Model.Date.ToString("yyyy-MM-dd")</dd>
+
+  @if (Model.FrontMatter?.Author is object)
+  {
+    <dt class="icon">Author</dt>
+    <dd class="icon person">@Model.FrontMatter.Author</dd>
+  }
+
+  @if (Model.FrontMatter?.Categories is object)
+  {
+    <dt class="icon">Category</dt>
+    foreach (var category in Model.FrontMatter.Categories)
+    {
+      <dd class="icon category">@category</dd>
+    }
+  }
+</dl>

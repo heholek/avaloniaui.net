@@ -23,7 +23,7 @@ namespace AvaloniaUI.Homepage
 
             services.AddMarkdown(config =>
             {
-                config.AddMarkdownProcessingFolder("/blog/", "~/Pages/Shared/_BlogPost.cshtml");
+                config.AddMarkdownProcessingFolder("/blog/", "~/Pages/Blog/Post.cshtml");
             });
 
             services.AddMvc(option => option.EnableEndpointRouting = false)
