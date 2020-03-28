@@ -1,22 +1,23 @@
-@* Layout for pages without a hero section, such as blogs and documentation *@
+@* Layout for pages with a hero section, such as index and support *@
 
-
-<partial name="_Head.cshtml"/>
+<partial name="_Head.cshtml" />
 
 <body>
   <partial name="_Navbar.cshtml"/>
 
   <div class="page">
-    <div class="sidebar-container">
-      <div class="sidebar gray-gradient">
-        <a class="avalonia-logo large" href="/">Homepage</a>
+    <div class="hero-container">
+      <div class="sidebar fixed @(ViewData["SidebarBackground"] ?? "gray-gradient")">
         @RenderSection("Sidebar")
       </div>
-      <div class="content">
-        @RenderBody()
+      <div class="hero-content">
+        @RenderSection("HeroContent")
       </div>
     </div>
-    <partial name="_Footer.cshtml"/>
+    <div class="content">
+      @RenderBody()
+    </div>
+    <partial name="_Footer.cshtml" />
   </div>
 </body>
 </html>

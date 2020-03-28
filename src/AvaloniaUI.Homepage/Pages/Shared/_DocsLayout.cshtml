@@ -1,0 +1,21 @@
+@* Layout for docs and blogs *@
+
+
+<partial name="_Head.cshtml"/>
+
+<body>
+  <div class="page">
+    <partial name="_Navbar.cshtml"/>
+    <div class="sidebar-container">
+      <div class="sidebar gray-gradient">
+        <a class="avalonia-logo large" href="/">Homepage</a>
+        @RenderSection("Sidebar")
+      </div>
+      <div class="content">
+        @RenderBody()
+      </div>
+    </div>
+    <partial name="_Footer.cshtml" />
+  </div>
+</body>
+</html>

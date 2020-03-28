@@ -6,6 +6,7 @@
 @model AvaloniaUI.Homepage.Pages.Docs.IndexModel
 @{
   ViewData["Title"] = "Avalonia Docs";
+  Layout = "_DocsLayout";
 }
 
 @section Sidebar {
@@ -13,7 +14,7 @@
 
   @if (Model.Index is object)
   {
-    <partial name="_TreeView.cshtml" for="Index"/>
+    <partial name="_TreeView.cshtml" for="Index" />
   }
 }
 
