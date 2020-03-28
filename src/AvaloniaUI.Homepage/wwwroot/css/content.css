@@ -6,19 +6,19 @@
   min-width: 0;
 }
 
-.content section {
-  padding: var(--padding-large);
-}
-
-  .content section h1:not(.with-img) {
-    margin-top: 0;
+  .content section {
+    padding: var(--padding-large);
   }
 
-.content .threee-columns section a.button {
-  align-self: flex-start;
-  margin-top: var(--padding-small);
-  font-size: 1.32rem;
-}
+    .content section h1:not(.with-img) {
+      margin-top: 0;
+    }
+
+  .content .threee-columns section a.button {
+    align-self: flex-start;
+    margin-top: var(--padding-small);
+    font-size: 1.32rem;
+  }
 
 .blog-post dl {
   display: flex;
@@ -69,9 +69,44 @@ div.meta {
   font-style: italic;
 }
 
-.docs-index {
+.tree-view {
   font-size: 1rem;
 }
+
+  .tree-view li a {
+    text-decoration: none;
+    padding: 4px;
+  }
+
+    .tree-view li a.header {
+      margin-left: 2px;
+    }
+
+  .tree-view li .expander::before {
+    display: inline-block;
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0da";
+  }
+
+  .tree-view li.expanded .expander::before {
+    transform: rotate(90deg);
+  }
+
+  .tree-view ul,
+  .tree-view li {
+    list-style-type: none;
+  }
+
+    .tree-view li.selected > a.header {
+      background-color: var(--green);
+      font-weight: bold;
+    }
+
+    .tree-view li:not(.expanded) ul {
+      display: none;
+    }
 
 /* Display sidebar as a column if > 1024px */
 @media (min-width: 1024px) {

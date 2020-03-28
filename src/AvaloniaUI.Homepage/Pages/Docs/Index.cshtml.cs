@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +29,7 @@ namespace AvaloniaUI.Homepage.Pages.Docs
         public async Task<IActionResult> OnGet(string url)
         {
             var docsPath = Path.Combine(_env.WebRootPath, DocsRelativePath);
-            var articlePath = Path.Combine(docsPath, url ?? "index");
+            var articlePath = NormalizePath(Path.Combine(docsPath, url ?? "index"));
 
             if (Directory.Exists(articlePath))
             {
@@ -48,7 +47,7 @@ namespace AvaloniaUI.Homepage.Pages.Docs
                 return NotFound();
             }
 
-            Index = LoadIndex(docsPath);
+            Index = LoadIndex(docsPath, articlePath);
             return Page();
         }
 
@@ -71,7 +70,7 @@ namespace AvaloniaUI.Homepage.Pages.Docs
             return article;
         }
 
-        private List<DocsIndexItem> LoadIndex(string path)
+        private List<DocsIndexItem> LoadIndex(string path, string selectedPath)
         {
             var result = new List<DocsIndexItem>();
 
@@ -88,9 +87,10 @@ namespace AvaloniaUI.Homepage.Pages.Docs
 
                 result.Add(new DocsIndexItem
                 {
-                    Url = Url.Content(filePath),
+                    Url = PhysicalPathToContentPath(filePath, false),
                     Title = frontMatter?.Title ?? fileName,
                     Order = frontMatter?.Order ?? int.MaxValue,
+                    IsSelected = filePath == selectedPath,
                 });
             }
 
@@ -102,14 +102,18 @@ namespace AvaloniaUI.Homepage.Pages.Docs
                 if (frontMatter is object)
                 {
                     var directoryName = Path.GetFileName(path);
-
-                    result.Add(new DocsIndexItem
+                    var item = new DocsIndexItem
                     {
-                        Url = Url.Content(dirPath),
+                        Url = PhysicalPathToContentPath(dirPath, true),
                         Title = frontMatter.Title ?? directoryName,
                         Order = frontMatter.Order,
-                        Children = LoadIndex(dirPath),
-                    });
+                        Children = LoadIndex(dirPath, selectedPath),
+                        IsSelected = indexPath == selectedPath,
+                    };
+
+                    item.IsExpanded = item.IsSelected || item.Children.Any(x => x.IsExpanded || x.IsSelected);
+
+                    result.Add(item);
                 }
             }
 
@@ -125,6 +129,26 @@ namespace AvaloniaUI.Homepage.Pages.Docs
             }
 
             return null;
+        }
+
+        private string NormalizePath(string path)
+        {
+            return path.Replace(Path.AltDirectorySeparatorChar, Path.DirectorySeparatorChar);
+        }
+
+        private string PhysicalPathToContentPath(string physicalPath, bool isDirectory)
+        {
+            var directory = Path.GetDirectoryName(physicalPath);
+            var fileName = Path.GetFileNameWithoutExtension(physicalPath);
+            var path = Path.Combine(directory ?? string.Empty, fileName);
+            var result = Path.GetRelativePath(_env.WebRootPath, path).Replace('\\', '/');
+
+            if (isDirectory && !result.EndsWith('/'))
+            {
+                result += '/';
+            }
+
+            return Url.Content("~/" + result);
         }
     }
 }

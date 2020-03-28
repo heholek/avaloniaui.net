@@ -1,28 +1,11 @@
 @page "/docs/{*url}"
 
-@using Westwind.AspNetCore.Markdown;
 @using AvaloniaUI.Homepage.Models
+@using Westwind.AspNetCore.Markdown;
 
 @model AvaloniaUI.Homepage.Pages.Docs.IndexModel
 @{
   ViewData["Title"] = "Avalonia Docs";
-}
-
-@{
-  void RenderIndex(IEnumerable<DocsIndexItem> index)
-  {
-    foreach (var item in index)
-    {
-      <li>@item.Title</li>
-
-      if (item.Children?.Count > 0)
-      {
-        <ul>
-          @{ RenderIndex(item.Children); }
-        </ul>
-      }
-    }
-  }
 }
 
 @section Sidebar {
@@ -30,9 +13,7 @@
 
   @if (Model.Index is object)
   {
-    <ul class="docs-index">
-      @{RenderIndex(Model.Index);}
-    </ul>
+    <partial name="_TreeView.cshtml" for="Index"/>
   }
 }
 

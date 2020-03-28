@@ -26,4 +26,9 @@ $(function () {
     navbar.click(function (e) {
         e.stopPropagation();
     });
+
+    // Tree view
+    $('.tree-view .expander').click(function () {
+        $(this).parent('li').toggleClass('expanded');
+    });
 })
