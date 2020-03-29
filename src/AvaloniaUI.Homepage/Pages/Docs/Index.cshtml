@@ -9,9 +9,11 @@
   Layout = "_DocsLayout";
 }
 
-@section Sidebar {
-  <h1><span class="white">avalonia</span> docs</h1>
+@section Title {
+  <span class="white">avalonia</span> docs
+}
 
+@section TableOfContents {
   @if (Model.Index is object)
   {
     <partial name="_TreeView.cshtml" for="Index" />

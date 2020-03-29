@@ -17,7 +17,7 @@
     opacity: 0;
   }
 
-  #navbar.bg .avalonia-logo, #navbar.open .avalonia-logo {
+  #navbar.scrolled .avalonia-logo, #navbar.open .avalonia-logo {
     opacity: 1;
   }
 
@@ -79,7 +79,7 @@
       grid-column: 2;
     }
 
-    #navbar.bg {
+    #navbar.scrolled {
       background-color: white;
     }
 
@@ -120,7 +120,7 @@
     padding: var(--padding-xsmall);
   }
 
-    #navbar.bg {
+    #navbar.scrolled {
       background-color: var(--bright-purple);
     }
 

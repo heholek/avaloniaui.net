@@ -4,13 +4,14 @@ $(function () {
     hljs.initHighlightingOnLoad();
 
     var navbar = $('#navbar');
+    var scrollListeners = $('.scroll-listener');
 
-    // Sticky Menu
+    // Window scroll listeners
     $(window).scroll(function () {
         if (navbar.offset().top > 10) {
-            navbar.addClass('bg');
+            scrollListeners.addClass('scrolled');
         } else {
-            navbar.removeClass('bg');
+            scrollListeners.removeClass('scrolled');
         }
     });
 
@@ -28,7 +29,7 @@ $(function () {
     });
 
     // Tree view
-    $('.tree-view .expander').click(function () {
-        $(this).parent('li').toggleClass('expanded');
+    $('.expander').click(function () {
+        $(this).parent().toggleClass('expanded');
     });
 })

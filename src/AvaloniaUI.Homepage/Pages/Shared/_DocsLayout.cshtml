@@ -4,18 +4,15 @@
 <partial name="_Head.cshtml"/>
 
 <body>
-  <div class="page">
-    <partial name="_Navbar.cshtml"/>
-    <div class="sidebar-container">
-      <div class="sidebar gray-gradient">
-        <a class="avalonia-logo large" href="/">Homepage</a>
-        @RenderSection("Sidebar")
-      </div>
-      <div class="content">
-        @RenderBody()
+  <partial name="_Navbar.cshtml" />
+  <div class="page docs">
+    <div class="toc">
+      <h1 class="expander">@RenderSection("Title")</h1>
+      <div class="toc-content">
+        @RenderSection("TableOfContents")
       </div>
     </div>
-    <partial name="_Footer.cshtml" />
+    @RenderBody();
   </div>
 </body>
 </html>

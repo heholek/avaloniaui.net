@@ -6,6 +6,14 @@
   background: var(--gray2)
 }
 
+.bg-gray3 {
+  background: var(--gray3)
+}
+
+.bg-gray4 {
+  background: var(--gray4)
+}
+
 .white {
   color: white;
 }

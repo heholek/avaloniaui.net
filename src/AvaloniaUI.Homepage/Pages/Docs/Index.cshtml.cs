@@ -48,6 +48,14 @@ namespace AvaloniaUI.Homepage.Pages.Docs
             }
 
             Index = LoadIndex(docsPath, articlePath);
+
+            Index.Insert(0, new DocsIndexItem
+            {
+                Url = Url.Content("~/" + DocsRelativePath),
+                Title = "Introduction",
+                IsSelected = string.IsNullOrWhiteSpace(url),
+            });
+
             return Page();
         }
 

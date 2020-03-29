@@ -6,6 +6,7 @@
   padding-right: var(--padding-large);
   padding-bottom: var(--padding-small);
   padding-left: var(--padding-large);
+  position: relative;
 }
 
   .sidebar h1 {
@@ -78,11 +79,16 @@
   }
 }
 
-/* 3 column section if > 1440px */
-
 @media (min-width: 1440px) {
+
+  /* 3 column section if > 1440px */
   .three-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Full padding on docs sidebar if > 1440px */
+  .sidebar.fixed {
+    padding: var(--padding-large);
   }
 }
