@@ -58,6 +58,25 @@ article {
     font-weight: 700;
   }
 
+.filename {
+  background: #1E1E1E;
+  border-radius: 4px 4px 0 0;
+  color: #DCDCDC;
+  padding: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin: 1em 0 -3px 0;
+}
+
+  .filename p {
+    display: inline;
+  }
+
+  .filename + pre {
+    margin-top: 0;
+  }
+
 h1.post-title {
   margin-top: 0;
   margin-bottom: 0;
