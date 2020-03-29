@@ -1,7 +1,15 @@
 @model Westwind.AspNetCore.Markdown.MarkdownModel
+@{
+  ViewData["Title"] = Model.Title;
+  Layout = "_DocsLayout";
+}
 
-@section Sidebar {
-  <h1><span class="white">avalonia</span> blog</h1>
+@section Title {
+  <span class="white">avalonia</span> blog
+}
+
+@section TableOfContents {
+  @* TODO *@
 }
 
 <article class="blog-post">

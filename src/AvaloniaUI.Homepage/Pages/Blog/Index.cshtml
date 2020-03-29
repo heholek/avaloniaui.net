@@ -8,20 +8,24 @@
   Layout = "_DocsLayout";
 }
 
-@section Sidebar {
-  <h1><span class="white">avalonia</span> blog</h1>
+@section Title {
+  <span class="white">avalonia</span> blog
 }
 
-<div class="navbar-spacer"></div>
+@section TableOfContents {
+  @* TODO *@
+}
 
-@if (Model.Posts is object)
-{
-  foreach (var post in Model.Posts)
+<div class="blog-post-list">
+  @if (Model.Posts is object)
   {
-    <section class="blog-post summary">
-      <a href="@Url.Content(@post.Url)"><h1 class="post-title">@post.Title</h1></a>
-      <partial name="_PostMetadata.cshtml" model="@post"/>
-      <p>@Markdown.ParseHtmlString(post.Markdown, sanitizeHtml: true)</p>
-    </section>
+    foreach (var post in Model.Posts)
+    {
+      <section class="blog-post summary">
+        <a href="@Url.Content(@post.Url)"><h1 class="post-title">@post.Title</h1></a>
+        <partial name="_PostMetadata.cshtml" model="@post" />
+        <p>@Markdown.ParseHtmlString(post.Markdown, sanitizeHtml: true)</p>
+      </section>
+    }
   }
-}
+</div>
